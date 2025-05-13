@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/sg-1k/!svn/ver/41/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view
+END
+status.syslog.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/status.syslog.js
+END
+status.routes.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/status.routes.js
+END
+system.system.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/system.system.js
+END
+network.routes.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/network.routes.js
+END
+system.upgrade.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/sg-1k/!svn/ver/41/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/system.upgrade.js
+END
+network.interfaces.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/sg-1k/!svn/ver/35/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/network.interfaces.js
+END
+status.dmesg.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/status.dmesg.js
+END
+system.users.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/system.users.js
+END
+system.cron.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/system.cron.js
+END
+network.wireless.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/network.wireless.js
+END
+network.hosts.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/network.hosts.js
+END
+status.overview.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/status.overview.js
+END
+network.switch.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/network.switch.js
+END
+network.diagnostics.js
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/view/network.diagnostics.js
+END

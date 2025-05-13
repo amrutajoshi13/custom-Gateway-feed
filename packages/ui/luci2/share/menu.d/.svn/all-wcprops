@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/sg-1k/!svn/ver/41/dev/trunk/app/src/build-packages/generic/ui/luci2/share/menu.d
+END
+status.json
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/sg-1k/!svn/ver/41/dev/trunk/app/src/build-packages/generic/ui/luci2/share/menu.d/status.json
+END
+system.json
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/sg-1k/!svn/ver/41/dev/trunk/app/src/build-packages/generic/ui/luci2/share/menu.d/system.json
+END
+network.json
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/share/menu.d/network.json
+END

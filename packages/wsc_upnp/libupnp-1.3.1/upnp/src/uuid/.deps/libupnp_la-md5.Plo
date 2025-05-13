@@ -1,0 +1,13 @@
+src/uuid/libupnp_la-md5.lo: src/uuid/md5.c \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdc-predef.h \
+ src/inc/config.h ../autoconfig.h src/inc/global.h src/inc/md5.h
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdc-predef.h:
+
+src/inc/config.h:
+
+../autoconfig.h:
+
+src/inc/global.h:
+
+src/inc/md5.h:

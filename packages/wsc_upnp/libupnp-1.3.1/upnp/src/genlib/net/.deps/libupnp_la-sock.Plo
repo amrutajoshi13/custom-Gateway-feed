@@ -1,0 +1,103 @@
+src/genlib/net/libupnp_la-sock.lo: src/genlib/net/sock.c \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdc-predef.h \
+ src/inc/config.h ../autoconfig.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/assert.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/features.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/glibc-types.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/cdefs.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/errno.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/errno.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/time.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/alltypes.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/string.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/strings.h \
+ src/inc/sock.h src/inc/util.h ../upnp/inc/upnp.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/time.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdio.h \
+ ../ixml/inc/ixml.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/malloc.h \
+ ../upnp/inc/upnpconfig.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/netinet/in.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/inttypes.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdint.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/stdint.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/socket.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/socket.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/arpa/inet.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/types.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/endian.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/select.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/time.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/unistd.h \
+ /opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/posix.h \
+ src/inc/unixutil.h
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdc-predef.h:
+
+src/inc/config.h:
+
+../autoconfig.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/assert.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/features.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/glibc-types.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/cdefs.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/errno.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/errno.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/time.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/alltypes.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/string.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/strings.h:
+
+src/inc/sock.h:
+
+src/inc/util.h:
+
+../upnp/inc/upnp.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/time.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdio.h:
+
+../ixml/inc/ixml.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/malloc.h:
+
+../upnp/inc/upnpconfig.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/netinet/in.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/inttypes.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdint.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/stdint.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/socket.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/socket.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/arpa/inet.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/types.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/endian.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/select.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/time.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/unistd.h:
+
+/opt/openwrt-toolchain-ramips-mt76x8_gcc-7.5.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/posix.h:
+
+src/inc/unixutil.h:

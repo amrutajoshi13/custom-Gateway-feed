@@ -1,0 +1,49 @@
+<div id="map"></div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">New Network Interface :</h3>
+	</div>
+	<table class="table table-condensed table-hover">
+		<thead>
+			<tr class="cbi-section-table-titles">
+				<th class="cbi-section-table-cell">Name</th>
+				<th class="cbi-section-table-cell">Protocol</th>
+				<th class="cbi-section-table-cell"> </th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr class="luci2-section-item" id="sectionitem_NewInterface" data-luci2-sid="NewInterface">
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<input class="form-control luci2-field-validate" id="field_NewInterface_name" type="text" placeholder="">
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+				
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<select class="form-control luci2-field-validate" id="field_NewInterface_proto">
+								<option value="static">Static Address</option>
+								<option value="dhcp">DHCP Client</option>
+								<option value="dhcpv6">DHCPv6 client</option>
+							</select>
+							
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+				
+				<td class="text-right" style="width: 1%;">
+					<div class="btn-group">
+						<button type="button" title="" id="AddNewInterface" class="btn btn-success">Add</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>	
+

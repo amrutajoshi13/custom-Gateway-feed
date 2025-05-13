@@ -1,0 +1,31 @@
+src/iasnprintf.lo: src/iasnprintf.c \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdc-predef.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdarg.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/alltypes.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/assert.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/features.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/glibc-types.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/cdefs.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/malloc.h \
+ /home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdio.h \
+ inc/iasnprintf.h
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdc-predef.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdarg.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/bits/alltypes.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/assert.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/features.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/glibc-types.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/sys/cdefs.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/malloc.h:
+
+/home/anusha/Anusha_workspace/Projects/openwrt/Silbo_RC44_openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.5.0_musl/include/stdio.h:
+
+inc/iasnprintf.h:

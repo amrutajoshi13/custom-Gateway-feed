@@ -1,0 +1,30 @@
+{
+    "system": {
+        "title": "System",
+        "index": 20
+    },
+    "system/system": {
+        "title": "System",
+        "acls": [ "system" ],
+        "view": "system/system",
+        "index": 10
+    },
+    "system/users": {
+        "title": "Guest Logins",
+        "acls": [ "users" ],
+        "view": "system/users",
+        "index": 30
+    },
+    "system/upgrade": {
+        "title": "Backup / Upgrade",
+        "acls": [ "backup", "upgrade" ],
+        "view": "system/upgrade",
+        "index": 50
+    },
+    "system/cron": {
+        "title": "Scheduled Tasks",
+        "acls": [ "cron" ],
+        "view": "system/cron",
+        "index": 70
+    }
+}

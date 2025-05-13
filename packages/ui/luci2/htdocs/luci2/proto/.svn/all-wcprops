@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto
+END
+none.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/none.js
+END
+6in4.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/6in4.js
+END
+dslite.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/dslite.js
+END
+static.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/static.js
+END
+dhcpv6.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/dhcpv6.js
+END
+6rd.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/6rd.js
+END
+6to4.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/6to4.js
+END
+dhcp.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/htdocs/luci2/proto/dhcp.js
+END

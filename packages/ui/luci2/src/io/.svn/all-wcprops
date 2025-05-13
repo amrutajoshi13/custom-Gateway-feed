@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/src/io
+END
+multipart_parser.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/src/io/multipart_parser.h
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/src/io/main.c
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/src/io/CMakeLists.txt
+END
+multipart_parser.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/sg-1k/!svn/ver/20/dev/trunk/app/src/build-packages/generic/ui/luci2/src/io/multipart_parser.c
+END
