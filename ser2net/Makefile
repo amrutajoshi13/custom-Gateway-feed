@@ -51,7 +51,7 @@ define Package/ser2net/install
 	$(INSTALL_CONF) ./files/ser2net.config $(1)/etc/config/ser2net
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/ser2net.init $(1)/etc/init.d/ser2net
+	#$(INSTALL_BIN) ./files/ser2net.init $(1)/etc/init.d/ser2net
 endef
 
 $(eval $(call BuildPackage,ser2net))
