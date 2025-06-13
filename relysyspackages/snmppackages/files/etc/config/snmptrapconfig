@@ -1,0 +1,13 @@
+
+config snmptrapconfig 'snmptrapconfig'
+	option community 'public'
+	option porttrap '162'
+	option enablesnmptrap '0'
+	option enableiotrap '1'
+	option host '192.168.10.2'
+	option authenticationpassword 'Invendis'
+	option privacypassword 'Invendis'
+	option username 'Invendis'
+	option snmptrapsecurity '2'
+	option version3 '0'
+

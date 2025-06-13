@@ -1,0 +1,15 @@
+{
+    "features": {
+        "title": "Features",
+        "index": 70
+    },
+    
+    "features/packagemanager": {
+        "title": "Package Manager",
+        "acls": [
+            "packagemanager"
+        ],
+        "view": "features/packagemanager",
+        "index": 110
+    }
+}

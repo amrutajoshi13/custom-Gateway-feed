@@ -73,39 +73,39 @@ L.ui.view.extend({
                       description: L.tr('in  seconds')
                });*/
 
-              //s.option(L.cbi.CheckboxValue, 'EMeterRS232Line1DataSourceEnable', {
-                     //caption: L.tr('Enable RS232')
+              s.option(L.cbi.CheckboxValue, 'EMeterRS232Line1DataSourceEnable', {
+                     caption: L.tr('Enable RS232')
 
-              //});
+              });
 
-              //s.option(L.cbi.InputValue, 'EMeterRS232Line1DataSourcePerPublishInterval', {
-                     //caption: L.tr('Overall Periodicity Of RS232 devices Readings (In Seconds >= 60)'),
-                     //datatype: 'uintegerMultipleOf60'
-              //}).depends({ 'EMeterRS232Line1DataSourceEnable': '1' });
+              s.option(L.cbi.InputValue, 'EMeterRS232Line1DataSourcePerPublishInterval', {
+                     caption: L.tr('Overall Periodicity Of RS232 devices Readings (In Seconds >= 60)'),
+                     datatype: 'uintegerMultipleOf60'
+              }).depends({ 'EMeterRS232Line1DataSourceEnable': '1' });
 
 
-              //s.option(L.cbi.InputValue, 'SleepIntervalbetweensuccessiveRS232MetersInMilliSec', {
-                     //caption: L.tr('Delay between each RS232 device Readings (in Milliseconds)'),
-                     //datatype: 'uinteger'
-              //}).depends({ 'EMeterRS232Line1DataSourceEnable': '1' });
+              s.option(L.cbi.InputValue, 'SleepIntervalbetweensuccessiveRS232MetersInMilliSec', {
+                     caption: L.tr('Delay between each RS232 device Readings (in Milliseconds)'),
+                     datatype: 'uinteger'
+              }).depends({ 'EMeterRS232Line1DataSourceEnable': '1' });
 
-              //s.option(L.cbi.CheckboxValue, 'DIODataSourceEnable', {
-                     //caption: L.tr('Enable DIO')
-              //});
+              s.option(L.cbi.CheckboxValue, 'DIODataSourceEnable', {
+                     caption: L.tr('Enable DIO')
+              });
 
-              //s.option(L.cbi.InputValue, 'DIODataSourcePerPublishInterval', {
-                     //caption: L.tr('Overall Periodicity Of Digital input/output (In Seconds >= 60)'),
-                     //datatype: 'uintegerMultipleOf60'
-              //}).depends({ 'DIODataSourceEnable': '1' });
+              s.option(L.cbi.InputValue, 'DIODataSourcePerPublishInterval', {
+                     caption: L.tr('Overall Periodicity Of Digital input/output (In Seconds >= 60)'),
+                     datatype: 'uintegerMultipleOf60'
+              }).depends({ 'DIODataSourceEnable': '1' });
 
-              //s.option(L.cbi.CheckboxValue, 'AIODataSourceEnable', {
-                     //caption: L.tr('Enable AI')
-              //});
+              s.option(L.cbi.CheckboxValue, 'AIODataSourceEnable', {
+                     caption: L.tr('Enable AI')
+              });
 
-              //s.option(L.cbi.InputValue, 'AIODataSourcePerPublishInterval', {
-                     //caption: L.tr('Overall Periodicity Of Analog Input Readings (In Seconds >= 60)'),
-                     //datatype: 'uintegerMultipleOf60'
-              //}).depends({ 'AIODataSourceEnable': '1' });
+              s.option(L.cbi.InputValue, 'AIODataSourcePerPublishInterval', {
+                     caption: L.tr('Overall Periodicity Of Analog Input Readings (In Seconds >= 60)'),
+                     datatype: 'uintegerMultipleOf60'
+              }).depends({ 'AIODataSourceEnable': '1' });
               
               
            /*   s.option(L.cbi.CheckboxValue, 'SNMPDataSourceEnable', {

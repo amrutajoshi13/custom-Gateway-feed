@@ -1,0 +1,1659 @@
+INVENDIS-DEVICES-INFO-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, enterprises, Integer32, NOTIFICATION-TYPE
+        FROM SNMPv2-SMI
+    DisplayString
+        FROM SNMPv2-TC
+    MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF;
+
+invendis MODULE-IDENTITY
+    LAST-UPDATED "202308211602Z"
+    ORGANIZATION "Invendis Technologies"
+    CONTACT-INFO
+        "Sales Team
+        Postal:  Invendis Technologies India Pvt. Ltd.
+        #230, BOOHBCS Layout,
+        1st Cross, 38th Main, BTM 2nd Stage,
+        Bangalore - 560068
+
+        Tel:  +91 80 2668 1681/82
+        E-mail:  sales@invendis.com"
+    DESCRIPTION "The third revision of this module."
+    REVISION "202308211602Z"
+    DESCRIPTION "MIB module for Ericsson Integration."
+    ::= { enterprises 38151 }
+
+-- the System group
+
+--
+-- a collection of objects common to all managed systems.
+--
+
+deviceModel OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "A textual description of the entity.  This value should
+        include the full name and Modle identification of
+        the system's hardware type, software operating-system,
+        and networking software."
+    ::= { systemInfo 1 }
+
+deviceSerialNum OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The time (in hundredths of a second) since the
+        network management portion of the system was last
+        re-initialized."
+    ::= { systemInfo 2 }
+
+deviceHWVer OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "An administratively-assigned name for this managed
+        node.  By convention, this is the node's fully-qualified
+        domain name.  If the name is unknown, the value is
+        the zero-length string."
+    ::= { systemInfo 3 }
+
+deviceBatchNumber OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The physical location of this node (e.g., 'telephone
+        closet, 3rd floor').  If the location is unknown, the
+        value is the zero-length string."
+    ::= { systemInfo 4 }
+    
+deviceRouterFirmware OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The textual identification of the contact person for
+        this managed node, together with information on how
+        to contact this person.  If no contact information is
+        known, the value is the zero-length string."
+    ::= { systemInfo 5 }
+
+deviceGatewayFirmware OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The textual identification of the contact person for
+        this managed node, together with information on how
+        to contact this person.  If no contact information is
+        known, the value is the zero-length string."
+    ::= { systemInfo 6 }
+
+deviceUptime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The textual identification of the contact person for
+        this managed node, together with information on how
+        to contact this person.  If no contact information is
+        known, the value is the zero-length string."
+    ::= { systemInfo 7 }
+
+deviceTemperature OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The textual identification of the contact person for
+        this managed node, together with information on how
+        to contact this person.  If no contact information is
+        known, the value is the zero-length string."
+    ::= { systemInfo 8 }
+    
+deviceNoofModem OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The textual identification of the Device how many modem contains."
+    ::= { systemInfo 9 }    
+
+deviceInternetStatus OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates whether the device is currently connected to the internet."
+    ::= { systemInfo 10 }
+    
+deviceConfiguredWANInterfaceName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates all the interfaces which are up in mwan3 interfaces."
+    ::= { systemInfo 11 }
+
+deviceActiveWANInterfaceName OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates the name of interfaces which are active."
+    ::= { systemInfo 12 }
+    
+deviceActiveWANInterfaceStatus OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates the status of interfaces which are active."
+    ::= { systemInfo 13 }
+
+deviceActiveWANIP OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates the IP of active interfaces."
+    ::= { systemInfo 14 }
+    
+deviceActiveWANInternetUptime OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates the uptime of active interfaces."
+    ::= { systemInfo 15 }
+    
+deviceEWANInternetStatus OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "It indicates Internet is coming through EWAN."
+    ::= { systemInfo 16 }
+    
+numberOfDIpin OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of DI pin."
+    ::= { systemInfo 17 }
+
+numberOfAIpin OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of AI pin."
+    ::= { systemInfo 18 }
+    
+numberOftempSensor OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of temp sensors."
+    ::= { systemInfo 19 }
+
+numberOfDIOTraps OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Number of DIO traps."
+    ::= { systemInfo 20 }
+
+deviceCellularOperationMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "CellularOperationMode of system ."
+    ::= { systemInfo 21 }
+    
+-- Modem Details --
+-- New objects for modems
+
+-- Common Modem1 Informations
+
+modem1Revision OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems (regardless of their current Revision Version) present on this system."
+    ::= { modem1Details 1 }
+
+modem1Manufacturer OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems Manufacturer Details."
+    ::= { modem1Details 2 }
+
+modem1IMSI OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems IMSI Details."
+    ::= { modem1Details 3 }
+
+modem1Model OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems Model Details."
+    ::= { modem1Details 4 }
+    
+modem1IMEI OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems IMEI Details."
+    ::= { modem1Details 5 }
+
+modem1ActiveSim OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems ActiveSim Details."
+    ::= { modem1Details 6 }
+        
+-- modem 2 Details --
+
+-- Common Modem2 Informations
+
+modem2Revision OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems (regardless of their current Revision Version) present on this system."
+    ::= { modem2Details 1 }
+
+modem2Manufacturer OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems Manufacturer Details."
+    ::= { modem2Details 2 }
+
+modem2IMSI OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems IMSI Details."
+    ::= { modem2Details 3 }
+
+modem2Model OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems Model Details."
+    ::= { modem2Details 4 }
+    
+modem2IMEI OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems IMEI Details."
+    ::= { modem2Details 5 }
+
+modem2ActiveSim OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "The modems ActiveSim Details."
+    ::= { modem2Details 6 }
+
+
+-- modem1 sim 1 Parameters ---------------------
+
+-- 2.1.1.0 --
+
+modem1sim1RegState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the SimStates."
+    ::= { sim1Info1 1 }
+
+modem1sim1PinState OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the PinStates."
+    ::= { sim1Info1 2 }
+
+modem1sim1SignalStrengthCSQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem simSignalStrength."
+    ::= { sim1Info1 3 }
+
+modem1sim1Operator OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim Operator."
+    ::= { sim1Info1 4 }
+
+modem1sim1OperatorCode OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "simOperatorNumber."
+    ::= { sim1Info1 5 }
+
+modem1sim1CellID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim CellID."
+    ::= { sim1Info1 6 }
+    
+modem1sim1MBSentToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB sent today."
+    ::= { sim1Info1 7 }
+
+modem1sim1MBReceivedToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB received today."
+    ::= { sim1Info1 8 }
+    
+modem1sim1MBConsumedToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total MB consumed today."
+    ::= { sim1Info1 9 }
+
+-- modem1sim1ReceivedTillDateThisMonth
+
+modem1sim1MBSentCurrentMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB sent current month."
+    ::= { sim1Info1 10 }
+
+modem1sim1MBReceivedCurrentMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB received current month."
+    ::= { sim1Info1 11 }
+    
+modem1sim1MBConsumedCurrentMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total MB consumed current month."
+    ::= { sim1Info1 12 }
+    
+modem1sim1ConnectionState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection state."
+    ::= { sim1Info1 13 }
+
+modem1sim1ConnectionMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection type."
+    ::= { sim1Info1 14 }    
+    
+modem1sim1SINR OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius."
+    ::= { sim1Info1 15 }
+    
+modem1sim1RSRP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SINR value in dB."
+    ::= { sim1Info1 16 }
+
+modem1sim1RSRQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRP value in dBm."
+    ::= { sim1Info1 17 }
+
+modem1sim1RSSI OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim1Info1 18 }
+
+modem1sim1IP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim1Info1 19 }
+        
+modem1sim1QCCID OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem IP address(es)."
+    ::= { sim1Info1 20 }
+
+modem1sim1FDDIMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SIM ICCID."
+    ::= { sim1Info1 21 }    
+
+modem1sim1BandNumber OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim1Info1 22 }
+
+-- modem1 sim 1 Parameters ---------------------
+
+-- 2.2.1.0 --
+
+modem1sim2RegState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the SimStates."
+    ::= { sim1Info2 1 }
+
+modem1sim2PinState OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the PinStates."
+    ::= { sim1Info2 2 }
+
+modem1sim2SignalStrengthCSQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem simSignalStrength."
+    ::= { sim1Info2 3 }
+
+modem1sim2Operator OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim Operator."
+    ::= { sim1Info2 4 }
+
+modem1sim2OperatorCode OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "simOperatorNumber."
+    ::= { sim1Info2 5 }
+
+modem1sim2CellID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim CellID."
+    ::= { sim1Info2 6 }
+    
+modem1sim2MBSentToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB sent today."
+    ::= { sim1Info2 7 }
+
+modem1sim2MBReceivedToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB received today."
+    ::= { sim1Info2 8 }
+    
+modem1sim2MBConsumedToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total MB consumed today."
+    ::= { sim1Info2 9 }
+
+-- modem1sim2ReceivedTillDateThisMonth
+
+modem1sim2MBSentCurrentMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB sent current month."
+    ::= { sim1Info2 10 }
+    
+modem1sim2MBReceivedCurrentMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "MB received current month."
+    ::= { sim1Info2 11 }
+    
+modem1sim2MBConsumedCurrentMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total MB consumed current month."
+    ::= { sim1Info2 12 }
+    
+modem1sim2ConnectionState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection state."
+    ::= { sim1Info2 13 }
+
+modem1sim2ConnectionMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection type."
+    ::= { sim1Info2 14 }    
+    
+modem1sim2SINR OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius."
+    ::= { sim1Info2 15 }
+    
+modem1sim2RSRP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SINR value in dB."
+    ::= { sim1Info2 16 }
+
+modem1sim2RSRQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRP value in dBm."
+    ::= { sim1Info2 17 }
+
+modem1sim2RSSI OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim1Info2 18 }
+
+modem1sim2IP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim1Info2 19 }
+        
+modem1sim2QCCID OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem IP address(es)."
+    ::= { sim1Info2 20 }
+
+modem1sim2FDDIMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SIM ICCID."
+    ::= { sim1Info2 21 }    
+
+modem1sim2BandNumber OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim1Info2 22 }
+
+--------------Temperature----------------------------------------
+
+temperature1 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 1."
+    ::= { temperatureInfo 1 }
+
+temperature2 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 2."
+    ::= { temperatureInfo 2 }
+
+temperature3 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 3."
+    ::= { temperatureInfo 3 }
+
+temperature4 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 4."
+    ::= { temperatureInfo 4 }
+
+temperature5 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 5."
+    ::= { temperatureInfo 5 }
+
+temperature6 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 6."
+    ::= { temperatureInfo 6 }
+
+temperature7 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 7."
+    ::= { temperatureInfo 7 }
+
+temperature8 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius for Sensor 8."
+    ::= { temperatureInfo 8 }
+
+--------------Analog Input Pin----------------------------------------
+
+
+aiPin1 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Value of Analog Input (AI) Pin 1."
+    ::= { aiInfo 1 }
+
+aiPin2 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Value of Analog Input (AI) Pin 2."
+    ::= { aiInfo 2 }
+    
+--------------Digital Input/Output Pin----------------------------------
+
+
+dioPin1DefaultStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 1."
+    ::= { dioInfo 1 }
+
+dioPin2DefaultStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 2."
+    ::= { dioInfo 2 }
+
+dioPin3DefaultStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 3."
+    ::= { dioInfo 3 }
+
+dioPin4DefaultStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 4."
+    ::= { dioInfo 4 }
+
+dioPin1CurrentStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 1."
+    ::= { dioInfo 5 }
+
+dioPin2CurrentStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 2."
+    ::= { dioInfo 6 }
+
+dioPin3CurrentStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 3."
+    ::= { dioInfo 7 }
+
+dioPin4CurrentStatus OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "State of Digital Input/Output (DIO) Pin 4."
+    ::= { dioInfo 8 }
+
+
+--Trap Variables
+
+
+dioPin1Trap NOTIFICATION-TYPE
+    OBJECTS { dioPin1Status }
+    STATUS current
+    DESCRIPTION
+        "DIO Pin 1 Trap Notification."
+    ::= { dioTrapNotifications 1 }
+
+dioPin2Trap NOTIFICATION-TYPE
+    OBJECTS { dioPin2Status }
+    STATUS current
+    DESCRIPTION
+        "DIO Pin 2 Trap Notification."
+    ::= { dioTrapNotifications 2 }
+
+dioPin3Trap NOTIFICATION-TYPE
+    OBJECTS { dioPin3Status }
+    STATUS current
+    DESCRIPTION
+        "DIO Pin 3 Trap Notification."
+    ::= { dioTrapNotifications 3 }
+
+dioPin4Trap NOTIFICATION-TYPE
+    OBJECTS { dioPin4Status }
+    STATUS current
+    DESCRIPTION
+        "DIO Pin 4 Trap Notification."
+    ::= { dioTrapNotifications 4 }
+
+dioPin1Status OBJECT-TYPE
+    SYNTAX INTEGER { low(0), high(1) }
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "DIO Pin 1 status. 0: Low, 1: High"
+    ::= { dioTrapNotifications 5 }
+
+dioPin2Status OBJECT-TYPE
+    SYNTAX INTEGER { low(0), high(1) }
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "DIO Pin 2 status. 0: Low, 1: High"
+    ::= { dioTrapNotifications 6 }
+
+dioPin3Status OBJECT-TYPE
+    SYNTAX INTEGER { low(0), high(1) }
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "DIO Pin 3 status. 0: Low, 1: High"
+    ::= { dioTrapNotifications 7 }
+
+dioPin4Status OBJECT-TYPE
+    SYNTAX INTEGER { low(0), high(1) }
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "DIO Pin 4 status. 0: Low, 1: High"
+    ::= { dioTrapNotifications 8 }
+
+-- modem1 sim 1 Parameters ---------------------
+
+-- 2.2.1.0 --
+
+modem2sim1RegState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the SimStates."
+    ::= { sim2Info1 1 }
+
+modem2sim1PinState OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the PinStates."
+    ::= { sim2Info1 2 }
+
+modem2sim1SignalStrengthCSQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem simSignalStrength."
+    ::= { sim2Info1 3 }
+
+modem2sim1Operator OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim Operator."
+    ::= { sim2Info1 4 }
+
+modem2sim1OperatorCode OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "simOperatorNumber."
+    ::= { sim2Info1 5 }
+
+modem2sim1CellID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim CellID."
+    ::= { sim2Info1 6 }
+    
+modem2sim1SentToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Bytes sent today."
+    ::= { sim2Info1 7 }
+
+modem2sim1ReceivedToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Bytes received today."
+    ::= { sim2Info1 8 }
+    
+modem2sim1SentTillDateThisMonth OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total bytes sent."
+    ::= { sim2Info1 9 }
+
+-- modem2sim1ReceivedTillDateThisMonth
+
+modem2sim1ReceivedTDateTMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total bytes received."
+    ::= { sim2Info1 10 }
+    
+modem2sim1ConnectionState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection state."
+    ::= { sim2Info1 11 }
+
+modem2sim1ConnectionMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection type."
+    ::= { sim2Info1 12 }    
+    
+modem2sim1SINR OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius."
+    ::= { sim2Info1 13 }
+    
+modem2sim1RSRP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SINR value in dB."
+    ::= { sim2Info1 14 }
+
+modem2sim1RSRQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRP value in dBm."
+    ::= { sim2Info1 15 }
+
+modem2sim1RSSI OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim2Info1 16 }
+
+modem2sim1IP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim2Info1 17 }
+        
+modem2sim1QCCID OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem IP address(es)."
+    ::= { sim2Info1 18 }
+
+modem2sim1FDDIMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SIM ICCID."
+    ::= { sim2Info1 19 }    
+
+modem2sim1BandNumber OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim2Info1 20 }
+
+-- modem2 sim 2 Parameters ---------------------
+
+-- 2.2.1.0 --
+
+modem2sim2RegState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the SimStates."
+    ::= { sim2Info2 1 }
+
+modem2sim2PinState OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The Parameter defines the PinStates."
+    ::= { sim2Info2 2 }
+
+modem2sim2SignalStrengthCSQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem simSignalStrength."
+    ::= { sim2Info2 3 }
+
+modem2sim2Operator OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim Operator."
+    ::= { sim2Info2 4 }
+
+modem2sim2OperatorCode OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "simOperatorNumber."
+    ::= { sim2Info2 5 }
+
+modem2sim2CellID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sim CellID."
+    ::= { sim2Info2 6 }
+    
+modem2sim2SentToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Bytes sent today."
+    ::= { sim2Info2 7 }
+
+modem2sim2ReceivedToday OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Bytes received today."
+    ::= { sim2Info2 8 }
+    
+modem2sim2SentTillDateThisMonth OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total bytes sent."
+    ::= { sim2Info2 9 }
+
+-- modem2sim2ReceivedTillDateThisMonth
+
+modem2sim2ReceivedTDateTMonth OBJECT-TYPE 
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Total bytes received."
+    ::= { sim2Info2 10 }
+    
+modem2sim2ConnectionState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection state."
+    ::= { sim2Info2 11 }
+
+modem2sim2ConnectionMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Mobile data connection type."
+    ::= { sim2Info2 12 }    
+    
+modem2sim2SINR OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem's temperature in 0.1 degrees Celsius."
+    ::= { sim2Info2 13 }
+    
+modem2sim2RSRP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SINR value in dB."
+    ::= { sim2Info2 14 }
+
+modem2sim2RSRQ OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRP value in dBm."
+    ::= { sim2Info2 15 }
+
+modem2sim2RSSI OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim2Info2 16 }
+
+modem2sim2IP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim2Info2 17 }
+        
+modem2sim2QCCID OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Modem IP address(es)."
+    ::= { sim2Info2 18 }
+
+modem2sim2FDDIMode OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "SIM ICCID."
+    ::= { sim2Info2 19 }    
+
+modem2sim2BandNumber OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "RSRQ value in dB."
+    ::= { sim2Info2 20 }
+
+-- Ethernet Related 
+
+ethernetPortCount1 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) overall port Count"
+	::= 	{ ethernetPortCount 1 }
+
+-- Ehternet Name
+
+ethernetPortName1 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port 1 name"
+	::= { ethernetPortName 1 }
+
+ethernetPortName2 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port 2 name"
+	::= { ethernetPortName 2 }
+
+ethernetPortName3 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port 3 name"
+	::= { ethernetPortName 3 }
+
+ethernetPortName4 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port 4 name"
+	::= { ethernetPortName 4 }
+
+ethernetPortName5 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port 5 name"
+	::= { ethernetPortName 5 }
+
+-- Ethernet Port Number 
+
+ethernetPortNumber1 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Number"
+	::= { ethernetPortNumber 1 }
+
+ethernetPortNumber2 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Number"
+	::= { ethernetPortNumber 2 }
+
+ethernetPortNumber3 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Number"
+	::= { ethernetPortNumber 3 }
+
+ethernetPortNumber4 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Number"
+	::= { ethernetPortNumber 4 }
+
+ethernetPortNumber5 OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Number"
+	::= { ethernetPortNumber 5 }
+
+-- Ethernet Port State
+
+ethernetPortState1 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port is up/Down"
+	::= { ethernetPortState 1 }
+
+ethernetPortState2 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port is up/Down"
+	::= { ethernetPortState 2 }
+
+ethernetPortState3 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port is up/Down"
+	::= { ethernetPortState 3 }
+
+ethernetPortState4 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port is up/Down"
+	::= { ethernetPortState 4 }
+
+ethernetPortState5 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port is up/Down"
+	::= { ethernetPortState 5 }
+
+-- Ethernet Port Speed
+
+ethernetPortSpeed1 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port max speed"
+	::= { ethernetPortSpeed 1 }
+
+ethernetPortSpeed2 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port max speed"
+	::= { ethernetPortSpeed 2 }
+
+ethernetPortSpeed3 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port max speed"
+	::= { ethernetPortSpeed 3 }
+
+ethernetPortSpeed4 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port max speed"
+	::= { ethernetPortSpeed 4 }
+
+ethernetPortSpeed5 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port max speed"
+	::= { ethernetPortSpeed 5 }
+
+-- Ethernet Port Duplex
+
+ethernetPortDuplex1 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Duplex"
+	::= { ethernetPortDuplex 1 }
+
+ethernetPortDuplex2 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Duplex"
+	::= { ethernetPortDuplex 2 }
+
+ethernetPortDuplex3 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Duplex"
+	::= { ethernetPortDuplex 3 }
+
+ethernetPortDuplex4 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Duplex"
+	::= { ethernetPortDuplex 4 }
+
+ethernetPortDuplex5 OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0..255))
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Ethernet (LAN)/Ethernet (WAN) port Duplex"
+	::= { ethernetPortDuplex 5 }
+
+--
+-- Top-level structure
+--
+
+systemInfo 						OBJECT IDENTIFIER ::= { invendis 1 }
+mobile1Info        				OBJECT IDENTIFIER ::= { invendis 2 }
+dioInfo							OBJECT IDENTIFIER ::= { invendis 3 }
+aiInfo							OBJECT IDENTIFIER ::= { invendis 4 }
+temperatureInfo					OBJECT IDENTIFIER ::= { invendis 5 }
+dioTrapNotifications 			OBJECT IDENTIFIER ::= { invendis 6 }
+mobile2Info        				OBJECT IDENTIFIER ::= { invendis 7 }
+ethernetInfo						OBJECT IDENTIFIER ::= { invendis 8 }
+
+
+
+--Sub Structure----------------------------------------------
+
+modem1Details        	OBJECT IDENTIFIER ::= { mobile1Info 0 }
+sim1Info1          		OBJECT IDENTIFIER ::= { mobile1Info 1 }
+sim1Info2          		OBJECT IDENTIFIER ::= { mobile1Info 2 }
+
+modem2Details        	OBJECT IDENTIFIER ::= { mobile2Info 0 }
+sim2Info1          		OBJECT IDENTIFIER ::= { mobile2Info 1 }
+sim2Info2          		OBJECT IDENTIFIER ::= { mobile2Info 2 }
+
+--ethernet port related --
+
+ethernetPortCount			OBJECT IDENTIFIER ::= { ethernetInfo 0 }
+ethernetPortName			OBJECT IDENTIFIER ::= { ethernetInfo 1 }
+ethernetPortNumber			OBJECT IDENTIFIER ::= { ethernetInfo 2 }
+ethernetPortState			OBJECT IDENTIFIER ::= { ethernetInfo 3 }
+ethernetPortSpeed			OBJECT IDENTIFIER ::= { ethernetInfo 4 }
+ethernetPortDuplex			OBJECT IDENTIFIER ::= { ethernetInfo 5 }
+
+--
+-- Conformance
+--
+
+-- Groups for System Parameters--
+
+systemGroup OBJECT-GROUP
+    OBJECTS {
+				deviceModel, deviceSerialNum, deviceHWVer, deviceBatchNumber, deviceRouterFirmware, deviceGatewayFirmware, deviceUptime,
+				deviceTemperature, deviceNoofModem, deviceInternetStatus, deviceConfiguredWANInterfaceName, deviceActiveWANInterfaceName,
+				deviceActiveWANInterfaceStatus, deviceActiveWANIP, deviceActiveWANInternetUptime, deviceEWANInternetStatus,
+				numberOfDIpin, numberOfAIpin, numberOftempSensor, numberOfDIOTraps, deviceCellularOperationMode
+			}
+    STATUS  current
+    DESCRIPTION
+        "The system group defines objects which are common to all
+        managed systems."
+    ::= { invendis 9 }
+    
+-- Groups for Default Modem Parameters--
+
+defaultmodem1Group OBJECT-GROUP
+    OBJECTS {
+        modem1Revision, modem1Manufacturer,
+        modem1IMSI, modem1Model, modem1IMEI, modem1ActiveSim
+    }
+    STATUS  current
+    DESCRIPTION
+        "The system group defines objects which are common to all
+        managed systems."
+    ::= { invendis 10 }
+    
+defaultmodem2Group OBJECT-GROUP
+    OBJECTS {
+        modem2Revision, modem2Manufacturer,
+        modem2IMSI, modem2Model, modem2IMEI, modem2ActiveSim
+    }
+    STATUS  current
+    DESCRIPTION
+        "The system group defines objects which are common to all
+        managed systems."
+    ::= { invendis 11 }
+    
+modem1sim1Group OBJECT-GROUP
+    OBJECTS {
+			modem1sim1RegState, modem1sim1PinState, modem1sim1SignalStrengthCSQ, modem1sim1Operator, modem1sim1OperatorCode, modem1sim1CellID, 
+			modem1sim1MBSentToday, modem1sim1MBReceivedToday, modem1sim1MBConsumedToday, modem1sim1MBSentCurrentMonth, 
+			modem1sim1MBReceivedCurrentMonth, modem1sim1MBConsumedCurrentMonth, modem1sim1ConnectionState, modem1sim1ConnectionMode, 
+			modem1sim1SINR, modem1sim1RSRP, modem1sim1RSRQ, modem1sim1RSSI, modem1sim1IP, modem1sim1QCCID, modem1sim1FDDIMode, modem1sim1BandNumber
+	    }
+    STATUS  current
+    DESCRIPTION
+        "The modem group defines objects related to modems present on the system."
+    ::= { invendis 12 }
+
+modem1sim2Group OBJECT-GROUP
+    OBJECTS {
+			modem1sim2RegState, modem1sim2PinState, modem1sim2SignalStrengthCSQ, modem1sim2Operator, modem1sim2OperatorCode, modem1sim2CellID, 
+			modem1sim2MBSentToday, modem1sim2MBReceivedToday, modem1sim2MBConsumedToday, modem1sim2MBSentCurrentMonth, modem1sim2MBReceivedCurrentMonth,
+			modem1sim2MBConsumedCurrentMonth, modem1sim2ConnectionState, modem1sim2ConnectionMode, modem1sim2SINR, modem1sim2RSRP, modem1sim2RSRQ, modem1sim2RSSI,
+			modem1sim2IP, modem1sim2QCCID, modem1sim2FDDIMode, modem1sim2BandNumber
+	    }
+    STATUS  current
+    DESCRIPTION
+        "The modem group defines objects related to modems present on the system."
+    ::= { invendis 13 }
+
+
+-- Digital Input/Output (DIO) Group
+
+dioGroup OBJECT-GROUP
+    OBJECTS {
+         dioPin1DefaultStatus, dioPin2DefaultStatus, dioPin3DefaultStatus, dioPin4DefaultStatus, dioPin1CurrentStatus, dioPin2CurrentStatus, dioPin3CurrentStatus, dioPin4CurrentStatus
+    }
+    STATUS  current
+    DESCRIPTION
+        "The DIO group defines objects related to Digital Input/Output (DIO) pins."
+    ::= { invendis 14 }
+
+-- Analog Input (AI) Group
+
+aiGroup OBJECT-GROUP
+    OBJECTS {
+        aiPin1, aiPin2
+    }
+    STATUS  current
+    DESCRIPTION
+        "The AI group defines objects related to Analog Input (AI) pins."
+    ::= { invendis 15 }
+
+-- Groups for temperature sensors--
+
+temperatureGroup OBJECT-GROUP
+    OBJECTS {
+        temperature1, temperature2, temperature3, temperature4,
+        temperature5, temperature6, temperature7, temperature8
+    }
+    STATUS  current
+    DESCRIPTION
+        "The group defines objects related to temperature sensors for Modem 1."
+    ::= { invendis 16 }
+
+-- Groups for Traps sensors--
+
+dioTrapsMIBScalarsGroup OBJECT-GROUP
+    OBJECTS { dioPin1Status, dioPin2Status, dioPin3Status, dioPin4Status }
+    STATUS current
+    DESCRIPTION "A collection of scalar objects providing DIO Traps MIB information."
+    ::= { invendis 17 }
+
+dioTrapsMIBNotificationsGroup NOTIFICATION-GROUP
+    NOTIFICATIONS { dioPin1Trap, dioPin2Trap, dioPin3Trap, dioPin4Trap }
+    STATUS current
+    DESCRIPTION "A collection of notifications providing DIO Traps MIB information."
+    ::= { invendis 18 }
+
+modem2sim1Group OBJECT-GROUP
+    OBJECTS {
+			modem2sim1RegState, modem2sim1PinState, modem2sim1SignalStrengthCSQ, modem2sim1Operator, modem2sim1OperatorCode, modem2sim1CellID, 
+			modem2sim1SentToday, modem2sim1ReceivedToday, modem2sim1SentTillDateThisMonth, modem2sim1ReceivedTDateTMonth, 
+			modem2sim1ConnectionState, modem2sim1ConnectionMode, modem2sim1SINR, modem2sim1RSRP, modem2sim1RSRQ, modem2sim1RSSI, modem2sim1IP, 
+			modem2sim1QCCID, modem2sim1FDDIMode, modem2sim1BandNumber
+	    }
+    STATUS  current
+    DESCRIPTION
+        "The modem group defines objects related to modems present on the system."
+    ::= { invendis 19 }
+
+modem2sim2Group OBJECT-GROUP
+    OBJECTS {
+			modem2sim2RegState, modem2sim2PinState, modem2sim2SignalStrengthCSQ, modem2sim2Operator, modem2sim2OperatorCode, modem2sim2CellID, 
+			modem2sim2SentToday, modem2sim2ReceivedToday, modem2sim2SentTillDateThisMonth, modem2sim2ReceivedTDateTMonth, 
+			modem2sim2ConnectionState, modem2sim2ConnectionMode, modem2sim2SINR, modem2sim2RSRP, modem2sim2RSRQ, modem2sim2RSSI, modem2sim2IP, 
+			modem2sim2QCCID, modem2sim2FDDIMode, modem2sim2BandNumber
+	    }
+    STATUS  current
+    DESCRIPTION
+        "The modem group defines objects related to modems present on the system."
+    ::= { invendis 20 }
+
+-- Groups for ethernet related--
+
+ethernetGroup OBJECT-GROUP
+    OBJECTS {
+				ethernetPortCount1,
+				ethernetPortName1, ethernetPortName2, ethernetPortName3, ethernetPortName4, ethernetPortName5,
+				ethernetPortNumber1,ethernetPortNumber2, ethernetPortNumber3, ethernetPortNumber4, ethernetPortNumber5,
+				ethernetPortState1, ethernetPortState2, ethernetPortState3, ethernetPortState4, ethernetPortState5,
+				ethernetPortSpeed1, ethernetPortSpeed2, ethernetPortSpeed3, ethernetPortSpeed4, ethernetPortSpeed5,
+				ethernetPortDuplex1, ethernetPortDuplex2, ethernetPortDuplex3, ethernetPortDuplex4, ethernetPortDuplex5
+			}
+    STATUS  current
+    DESCRIPTION
+        "The group defines objects related to temperature sensors for Modem 1."
+    ::= { invendis 21 }
+ 
+-- Groups for Traps sensors--
+--
+-- Compliance
+--
+
+invendismod MODULE-COMPLIANCE
+    STATUS current
+    DESCRIPTION "Compliance statement for my MIB module"
+    MODULE
+        MANDATORY-GROUPS { systemGroup, defaultmodem1Group, defaultmodem2Group, modem1sim1Group, modem1sim2Group, dioGroup, aiGroup, temperatureGroup, dioTrapsMIBScalarsGroup, dioTrapsMIBNotificationsGroup, modem2sim1Group, modem2sim2Group, ethernetGroup }
+    ::= { invendis 22 }
+END

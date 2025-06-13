@@ -1,0 +1,8 @@
+dioPin1DefaultStatus=
+dioPin2DefaultStatus=
+dioPin3DefaultStatus=
+dioPin4DefaultStatus=
+dioPin1CurrentStatus=
+dioPin2CurrentStatus=
+dioPin3CurrentStatus=
+dioPin4CurrentStatus=

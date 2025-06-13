@@ -1,0 +1,8 @@
+temperature1=
+temperature2=
+temperature3=
+temperature4=
+temperature5
+temperature6=
+temperature7=
+temperature8=

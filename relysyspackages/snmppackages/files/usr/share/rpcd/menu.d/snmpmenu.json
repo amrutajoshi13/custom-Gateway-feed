@@ -1,0 +1,14 @@
+{
+    "features": {
+        "title": "Features",
+        "index": 50
+    },
+    
+		"features/snmp": {
+        "title": "SNMP Agent Configuration",
+        "acls": [ "snmpconfig" ],
+        "view": "features/snmp",
+        "index": 30
+         
+    },
+}

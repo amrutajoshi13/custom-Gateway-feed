@@ -94,7 +94,7 @@ start_service() {
 	        mv /usr/sbin/snmptrapd /Web_Page_Gateway_Apps/Common_GW_Files/
 	    
 	    fi
-
+         mv /usr/sbin/snmptrapd /Web_Page_Gateway_Apps/Common_GW_Files/
    
      sleep 1
      IP=$(uci get mwan3config.CWAN1.trackIp1)

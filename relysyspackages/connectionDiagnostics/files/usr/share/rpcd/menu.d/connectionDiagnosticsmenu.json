@@ -1,0 +1,15 @@
+{
+    "features": {
+        "title": "Features",
+        "index": 70
+    },
+    
+    "features/connectiondiagnostics": {
+        "title": "Connection Diagnostics",
+        "acls": [
+            "connectiondiagnostics"
+        ],
+        "view": "features/connectiondiagnostics",
+        "index": 100
+    }
+}

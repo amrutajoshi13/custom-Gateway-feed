@@ -33,7 +33,7 @@ L.ui.view.extend({
 
                 s.option(L.cbi.InputValue, 'Slaveid', {
                         caption: L.tr('Slave ID'),
-                        placeholder: '1',
+                        placeholder: '0',
                         optional: true
                 });
 
@@ -157,6 +157,9 @@ L.ui.view.extend({
                         caption: L.tr('Data Type'),
                 }).value("0", L.tr("Hexadecimal"))
                         .value("11", L.tr("1-bit"))
+                        .value("22", L.tr("Boolean"))
+                        .value("25", L.tr("INT-8 (Higher byte)"))
+                        .value("26", L.tr("INT-8 (Lower byte)"))
                         .value("5", L.tr("INT-16 (byte order 1,2)"))
                         .value("6", L.tr("INT-16 (byte order 2,1)"))
                         .value("9", L.tr("INT-32 (byte order 1,2,3,4)"))
@@ -164,6 +167,8 @@ L.ui.view.extend({
                         .value("14", L.tr("INT-32 (byte order 3,4,1,2)"))
                         .value("15", L.tr("INT-32 (byte order 2,1,4,3)"))
                         .value("19", L.tr("INT Long (byte order 1-8)"))
+                        .value("23", L.tr("UINT-8 (Higher byte)"))
+                        .value("24", L.tr("UINT-8 (Lower byte)"))
                         .value("3", L.tr("UINT-16 (byte order 1,2)"))
                         .value("4", L.tr("UINT-16 (byte order 2,1)"))
                         .value("7", L.tr("UINT-32 (byte order 1,2,3,4)"))
@@ -176,8 +181,8 @@ L.ui.view.extend({
                         .value("2", L.tr("Float (byte order 3,4,1,2)"))
                         .value("17", L.tr("Float (byte order 2,1,4,3)"))
                         .value("20", L.tr("Double (byte order 1-8)"))
-                        .value("21", L.tr("Hex-String"))
-                        .value("22", L.tr("Boolean"));
+                        .value("21", L.tr("Hex-String"));
+                        
 
 
 

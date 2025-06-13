@@ -1,0 +1,1 @@
+board_name=Silbo_GD44-A_GW

@@ -1,0 +1,4 @@
+numberOfDIOpin=2
+numberOfAIpin=0
+numberOftempSensor=0
+numberOfDIOTraps=2

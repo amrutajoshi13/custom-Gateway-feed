@@ -1,0 +1,2 @@
+aipin1=0
+aipin2=1

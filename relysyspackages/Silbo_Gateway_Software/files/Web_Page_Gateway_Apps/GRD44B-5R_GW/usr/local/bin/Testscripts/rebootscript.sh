@@ -198,6 +198,7 @@ data=$(cat <<EOF
   "device_model": "$device_model",
   "testing_time": "$time_stamp",
   "board_test_status":"$board_test",
+  "customer_name":"$customer_name",
   "json_data": {
     "device_id": "$serial_number",
     "device_type": "$devicetype",

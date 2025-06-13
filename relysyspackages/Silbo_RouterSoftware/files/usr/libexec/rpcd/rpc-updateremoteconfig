@@ -8,10 +8,11 @@ ArchiveDLPath="/tmp"
 UpdateConfigScript="/root/InterfaceManager/script/Update_Nms.sh"
 UpdateNMSConfigScript="/root/InterfaceManager/script/Disable_Nms.sh"
 UpdateTRConfigScript="/bin/TR069_launch.sh"
+UpdateNMSStatusScript="/root/InterfaceManager/script/Nms_Status.sh"
 
 case "$1" in
     list)
-        echo '{"configure":{}, "trconfigure":{},"update":{},"testarchive":{"archive":"ArchiveName"}}'
+        echo '{"configure":{},"configurestatus":{},"trconfigure":{},"update":{},"testarchive":{"archive":"ArchiveName"}}'
         ;;
     call)
         case "$2" in
@@ -25,12 +26,21 @@ case "$1" in
                             fi
                                                                                  
                             ;;
+                            
+                      configurestatus)
+		                # read the arguments
+		                echo "{\"code\":\"0\",\"output\":\"Updated Configurations\"}"  
+		                response=$(sh $UpdateNMSStatusScript)
+		                RetVal=$?
+		                echo "{\"code\":\"0\",\"output\":\"Updated Configurations\"}"                                   
+		                ;;  
+                        
                         
                        trconfigure)
                                  response=$($UpdateTRConfigScript)
 							if [ "$?" -ne 0 ]
                             then
-	                                        echo "{\"code\":\"0\",\"output\":\"Configurations Updated\"}"  
+	                                        echo "{\"code\":\"1\",\"output\":\"Configurations Updated\"}"  
 		                        else            
 		                                    echo "{\"code\":\"0\",\"output\":\"Configurations Updated\"}"   
 		                                fi                                

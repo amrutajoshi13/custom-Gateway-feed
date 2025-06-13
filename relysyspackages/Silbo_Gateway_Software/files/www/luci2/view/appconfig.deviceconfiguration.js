@@ -1588,7 +1588,9 @@ L.ui.view.extend({
                                 <option value="">Select</option>
 								<option value="0">Hexadecimal</option>  
 								<option value="11">1-bit</option>   
-								<option value="22">Boolean</option>   
+								<option value="22">Boolean</option> 
+								<option value="25">INT-8 (Higher byte)</option>
+                                <option value="26">INT-8(Lower byte)</option>										  
 								<option value="5">INT-16 (byte order 1,2)</option>
 								<option value="6">INT-16 (byte order 2,1)</option>     		
 								<option value="9">INT-32 (byte order 1,2,3,4)</option>
@@ -1596,6 +1598,8 @@ L.ui.view.extend({
 								<option value="14">INT-32 (byte order 3,4,1,2)</option>
 								<option value="15">INT-32 (byte order 2,1,4,3)</option>
 								<option value="19">INT Long (byte order 1-8)</option>
+								<option value="23">UINT-8(Higher byte)</option>
+								<option value="24">UINT-8(Lower byte)</option>
 								<option value="3">UINT-16 (byte order 1,2)</option>
 								<option value="4">UINT-16 (byte order 2,1)</option>
 								<option value="7">UINT-32 (byte order 1,2,3,4)</option>
@@ -1760,7 +1764,9 @@ L.ui.view.extend({
                                 <option value="">Select</option>								
 								<option value="0">Hexadecimal</option>  
 								<option value="11">1-bit</option>   
-								<option value="22">Boolean</option>   
+								<option value="22">Boolean</option>
+								<option value="25">INT-8(Higher byte)</option>
+                                <option value="26">INT-8(Lower byte)</option>   
 								<option value="5">INT-16 (byte order 1,2)</option>
 								<option value="6">INT-16 (byte order 2,1)</option>     		
 								<option value="9">INT-32 (byte order 1,2,3,4)</option>
@@ -1768,6 +1774,8 @@ L.ui.view.extend({
 								<option value="14">INT-32 (byte order 3,4,1,2)</option>
 								<option value="15">INT-32 (byte order 2,1,4,3)</option>
 								<option value="19">INT Long (byte order 1-8)</option>
+								<option value="23">UINT-8(Higher byte)</option>
+								<option value="24">UINT-8(Lower byte)</option>
 								<option value="3">UINT-16 (byte order 1,2)</option>
 								<option value="4">UINT-16 (byte order 2,1)</option>
 								<option value="7">UINT-32 (byte order 1,2,3,4)</option>
@@ -2139,7 +2147,9 @@ L.ui.view.extend({
                     <option value="">Select</option>
 					<option value="0">Hexadecimal</option>  
 					<option value="11">1-bit</option>   
-					<option value="22">Boolean</option>   
+					<option value="22">Boolean</option>  
+					<option value="25">INT-8(Higher byte)</option>
+                    <option value="26">INT-8(Lower byte)</option>  
 					<option value="5">INT-16 (byte order 1,2)</option>
 					<option value="6">INT-16 (byte order 2,1)</option>     		
 					<option value="9">INT-32 (byte order 1,2,3,4)</option>
@@ -2147,6 +2157,8 @@ L.ui.view.extend({
 					<option value="14">INT-32 (byte order 3,4,1,2)</option>
 					<option value="15">INT-32 (byte order 2,1,4,3)</option>
 					<option value="19">INT Long (byte order 1-8)</option>
+					<option value="23">UINT-8(Higher byte)</option>
+					<option value="24">UINT-8(Lower byte)</option>
 					<option value="3">UINT-16 (byte order 1,2)</option>
 					<option value="4">UINT-16 (byte order 2,1)</option>
 					<option value="7">UINT-32 (byte order 1,2,3,4)</option>
@@ -2226,7 +2238,9 @@ L.ui.view.extend({
                         <option value="">Select</option>
 						<option value="0">Hexadecimal</option>  
 						<option value="11">1-bit</option>   
-						<option value="22">Boolean</option>   
+						<option value="22">Boolean</option>  
+						<option value="25">INT-8(Higher byte)</option>
+                        <option value="26">INT-8(Lower byte)</option>  
 						<option value="5">INT-16 (byte order 1,2)</option>
 						<option value="6">INT-16 (byte order 2,1)</option>     		
 						<option value="9">INT-32 (byte order 1,2,3,4)</option>
@@ -2234,6 +2248,8 @@ L.ui.view.extend({
 						<option value="14">INT-32 (byte order 3,4,1,2)</option>
 						<option value="15">INT-32 (byte order 2,1,4,3)</option>
 						<option value="19">INT Long (byte order 1-8)</option>
+						<option value="23">UINT-8(Higher byte)</option>
+						<option value="24">UINT-8(Lower byte)</option>
 						<option value="3">UINT-16 (byte order 1,2)</option>
 						<option value="4">UINT-16 (byte order 2,1)</option>
 						<option value="7">UINT-32 (byte order 1,2,3,4)</option>
