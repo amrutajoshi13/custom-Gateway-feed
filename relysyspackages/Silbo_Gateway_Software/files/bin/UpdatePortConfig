@@ -1,0 +1,124 @@
+#!/bin/sh
+
+. /lib/functions.sh
+
+PortsUCIPath=/etc/config/portconfig
+PortsConfigSection1="portconfig1"
+PortsConfigSection2="portconfig2"
+NoOfSectionCount=0
+ser2netConfigFile=/etc/ser2net.conf
+ser2netConfigFile2=/etc/ser2net2.conf
+LogFilePath=/var/log/ser2net
+LogrotateConfigFile=/etc/logrotate.d/SertoNetLogrotateConfig
+
+
+sed '1,70!d' -i "$ser2netConfigFile"
+#sed '/tty/d' -i "$ser2netConfigFile"
+
+PortsConfigParameters()
+{
+    config_load "$PortsUCIPath"
+    config_get Ser2netEnable1      "$PortsConfigSection1"   Ser2netEnable1
+   # config_get InternalPort1      "$PortsConfigSection"   InternalPort1
+    config_get tcpport1        "$PortsConfigSection1"   tcpport1
+    config_get Baudrate1    "$PortsConfigSection1"   Baudrate1
+    config_get NoOfStopbits1   "$PortsConfigSection1"   NoOfStopbits1
+    config_get Databits1    "$PortsConfigSection1"   Databits1
+    config_get Parity1  "$PortsConfigSection1"   Parity1
+    config_get Flowcontrol1  "$PortsConfigSection1"   Flowcontrol1
+    config_get portmode1  "$PortsConfigSection1"   portmode1
+    config_get timeout1  "$PortsConfigSection1"   timeout1
+    config_get readtraceenable1  "$PortsConfigSection1"   readtraceenable1
+    config_get writetraceenable1  "$PortsConfigSection1"   writetraceenable1
+    
+    config_get Ser2netEnable2      "$PortsConfigSection2"   Ser2netEnable2
+    #config_get InternalPort2      "$PortsConfigSection"   InternalPort2
+    config_get tcpport2        "$PortsConfigSection2"   tcpport2
+    config_get Baudrate2    "$PortsConfigSection2"   Baudrate2
+    config_get NoOfStopbits2   "$PortsConfigSection2"   NoOfStopbits2
+    config_get Databits2    "$PortsConfigSection2"   Databits2
+    config_get Parity2  "$PortsConfigSection2"   Parity2
+    config_get Flowcontrol2  "$PortsConfigSection2"   Flowcontrol2
+    config_get portmode2  "$PortsConfigSection2"   portmode2
+    config_get timeout2  "$PortsConfigSection2"   timeout2
+    config_get readtraceenable2  "$PortsConfigSection2"   readtraceenable2
+    config_get writetraceenable2  "$PortsConfigSection2"   writetraceenable2
+
+   PortsInterfaceToSer2net
+
+}
+
+PortsInterfaceToSer2net()
+{
+	InternalPort1="ttyS1"
+	InternalPort2="ttyS2"
+	if [ "$Ser2netEnable1" = '1' ] || [ "$Ser2netEnable1" = '3' ]
+	then 
+			if [ "$portmode1" != "off" ] 
+			then
+				DEV=$(echo "$InternalPort1" | tr -d '')
+				TR=$(echo "$InternalPort1" | tr -d 'ttyS')
+				TW=$(echo "$InternalPort1" | tr -d 'ttyS')
+			    if [ "$readtraceenable1" != "1" ] && [ "$writetraceenable1" != "1" ]
+			    then
+			        echo "$tcpport1:$portmode1:$timeout1:/dev/$DEV:$Baudrate1 "$Databits1"DATABITS $Parity1 "$NoOfStopbits1"STOPBIT" "$Flowcontrol1" >> "$ser2netConfigFile" 
+			    elif [ "$readtraceenable1" = "1" ] && [ "$writetraceenable1" != "1" ]
+			    then			
+					echo "TRACEFILE:tr"$TR":$LogFilePath/tr-\p" >> "$ser2netConfigFile" 
+					echo "$tcpport1:$portmode1:$timeout1:/dev/$DEV:$Baudrate1 "$Databits1"DATABITS $Parity1 "$NoOfStopbits1"STOPBIT" "$Flowcontrol1 tr=tr"$TR" timestamp" >> "$ser2netConfigFile"
+			    elif [ "$readtraceenable1" != "1" ] && [ "$writetraceenable1" = "1" ]
+			    then
+					echo "TRACEFILE:tw"$TW":$LogFilePath/tw-\p" >> "$ser2netConfigFile" 
+					echo "$tcpport1:$portmode1:$timeout1:/dev/$DEV:$Baudrate1 "$Databits1"DATABITS $Parity "$NoOfStopbits1"STOPBIT" "$Flowcontrol1 tw=tw"$TW" timestamp" >> "$ser2netConfigFile"
+			    elif [ "$readtraceenable1" = "1" ] && [ "$writetraceenable1" = "1" ]
+			    then
+					echo "TRACEFILE:tr"$TR":$LogFilePath/tr-\p" >> "$ser2netConfigFile"
+					echo "TRACEFILE:tw"$TW":$LogFilePath/tw-\p" >> "$ser2netConfigFile"
+					echo "$tcpport1:$portmode1:$timeout1:/dev/$DEV:$Baudrate1 "$Databits1"DATABITS $Parity1 "$NoOfStopbits1"STOPBIT" "$Flowcontrol1 tr=tr"$TR" timestamp tw=tw"$TW" timestamp" >> "$ser2netConfigFile"
+			    fi
+		    else
+		        echo "Port1 Mode is off"	      
+		        
+			fi
+		fi	
+		
+		if [ "$Ser2netEnable2" = '1' ] || [ "$Ser2netEnable2" = '3' ]
+		then 	
+				if [ "$portmode2" != "off" ] 
+			    then
+				DEV=$(echo "$InternalPort2" | tr -d '')
+				TR=$(echo "$InternalPort2" | tr -d 'ttyS')
+				TW=$(echo "$InternalPort2" | tr -d 'ttyS')
+			    if [ "$readtraceenable2" != "1" ] && [ "$writetraceenable2" != "1" ]
+			    then
+			        echo "$tcpport2:$portmode2:$timeout2:/dev/$DEV:$Baudrate2 "$Databits2"DATABITS $Parity2 "$NoOfStopbits2"STOPBIT" "$Flowcontrol2" >> "$ser2netConfigFile2" 
+			    elif [ "$readtraceenable2" = "1" ] && [ "$writetraceenable2" != "1" ]
+			    then			
+					echo "TRACEFILE:tr"$TR":$LogFilePath/tr-\p" >> "$ser2netConfigFile" 
+					echo "$tcpport2:$portmode2:$timeout2:/dev/$DEV:$Baudrate2 "$Databits2"DATABITS $Parity2 "$NoOfStopbits2"STOPBIT" "$Flowcontrol2 tr=tr"$TR" timestamp" >> "$ser2netConfigFile2"
+			    elif [ "$readtraceenable2" != "1" ] && [ "$writetraceenable2" = "1" ]
+			    then
+					echo "TRACEFILE:tw"$TW":$LogFilePath/tw-\p" >> "$ser2netConfigFile" 
+					echo "$tcpport2:$portmode2:$timeout2:/dev/$DEV:$Baudrate2 "$Databits2"DATABITS $Parity2 "$NoOfStopbits2"STOPBIT" "$Flowcontrol2 tw=tw"$TW" timestamp" >> "$ser2netConfigFile2"
+			    elif [ "$readtraceenable2" = "1" ] && [ "$writetraceenable2" = "1" ]
+			    then
+					echo "TRACEFILE:tr"$TR":$LogFilePath/tr-\p" >> "$ser2netConfigFile"
+					echo "TRACEFILE:tw"$TW":$LogFilePath/tw-\p" >> "$ser2netConfigFile"
+					echo "$tcpport2:$portmode2:$timeout2:/dev/$DEV:$Baudrate2 "$Databits2"DATABITS $Parity2 "$NoOfStopbits2"STOPBIT" "$Flowcontrol2 tr=tr"$TR" timestamp tw=tw"$TW" timestamp" >> "$ser2netConfigFile2"
+			    fi
+		    else
+		        echo "Port2 Mode is off"	      
+		        
+			fi
+	fi	
+}
+
+
+
+PortsConfigParameters
+
+/bin/UpdateModbusConfig.sh
+
+#/etc/init.d/ser2net start
+
+#logrotate "$LogrotateConfigFile"

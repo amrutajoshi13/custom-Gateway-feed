@@ -1,0 +1,58 @@
+<div id="map"></div>
+<div class="tab-content" id="tabs">
+			       		
+	<div class="tab-pane TabC Tabmac active"  id="tab_mac">
+		<div id="section_mac_binding"></div>	
+		<div id="Mansection_firewall_port" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Add New Configuration </h3>
+			</div>
+			
+			<table class="table table-condensed table-hover">
+				<tbody>
+					
+					<tbody data-toggle="validator">
+					<tr class="luci2-section-item" id="sectionitem_NewEvent" data-luci2-sid="NewEvent">
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_NewEvent_mac_name" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+					</tr>	
+					<tr class="luci2-section-item" id="sectionitem_firewall_redirect_newRedirect" data-luci2-sid="newRedirect">
+						<td class="text-right" style="width: 100%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewmacid" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>	
+	        
+			
+		<table class="table table-condensed table-hover">
+						<td class="text-center" style="width: 5%;">							
+							<button type="button" id="update_mac" title="" class="btn btn-success">Update</button>
+						</td>
+					</tr>
+				</tbody>		
+	  </table>			
+			
+	</div>
+			
+	</div>
+	
+ <style>
+.cbi-section{
+    sbackground: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 25px 30px #0000001a;
+    border: 1px solid #70707038;
+    border-radius: 10px;
+    width: 95%;
+    padding: 17px;
+margin-bottom:10px;
+}
+</style>

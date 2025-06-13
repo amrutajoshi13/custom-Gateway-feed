@@ -1,0 +1,21 @@
+{
+    "rs232utilityconfig": {
+        "description": "RS232 Utility Configuration",
+            "read": {
+                "ubus" : {
+                "rpc-rs232utilityupdate":[
+                    "configure"
+                ],
+     },
+                "uci": [
+                    "RS232UtilityConfigGeneric"
+                ]
+            },
+ 
+            "write": {
+                "uci": [
+                    "RS232UtilityConfigGeneric"
+                ]
+            }
+    }
+}

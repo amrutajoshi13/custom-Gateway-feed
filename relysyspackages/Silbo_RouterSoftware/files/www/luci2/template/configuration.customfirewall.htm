@@ -1,0 +1,96 @@
+<div class="tab-content" id="tabs">
+	<ul class="nav nav-tabs" id="my_tab"  data-tabs="tabs">
+        <h4><b>Port Forwarding</b></h4>
+	</ul>
+	
+
+		<div id="section_firewall_port"></div>
+		<div id="Mansection_firewall_port" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">New port forward:</h3>
+			</div>
+			
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr class="cbi-section-table-titles">
+						<th class="cbi-section-table-cell">Name</th>
+						<th class="cbi-section-table-cell">Loopback IP</th>
+						<th class="cbi-section-table-cell">Port</th>
+						<th class="cbi-section-table-cell">Internal IP</th>												
+						<th class="cbi-section-table-cell">Internal Port</th>
+						<th class="cbi-section-table-cell"> </th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr class="luci2-section-item" id="sectionitem_firewall_redirect_newRedirect" data-luci2-sid="newRedirect">
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_firewall_redirect_newRedirect_name" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_firewall_redirect_newRedirect_src_IP" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_firewall_redirect_newRedirect_src_port" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_firewall_redirect_newRedirect_dest_IP" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_firewall_redirect_newRedirect_dest_port" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						
+						
+						<td class="text-right" style="width: 1%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewPortForward" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>	 
+		</div>
+		
+			<table class="table table-condensed table-hover">
+						<td class="text-right" style="width: 5%;">							
+							<button type="button" id="btn_update" title="" class="btn btn-success">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>	        		
+
+</div>

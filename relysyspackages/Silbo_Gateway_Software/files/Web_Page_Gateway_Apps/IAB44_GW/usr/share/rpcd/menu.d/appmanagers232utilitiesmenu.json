@@ -1,0 +1,15 @@
+{
+
+    "appmanager": {
+     "title": "Appmanager",
+        "index": 75
+    },
+                                               
+    "appmanager/rs232utilityconfiguration": {       
+         "title": "RS232 Utility Configuration",
+         "acls": [ "rs232utilityconfig" ],           
+         "view": "appmanager/rs232utilityconfiguration",
+         "index": 30                                  
+     },  
+   
+}

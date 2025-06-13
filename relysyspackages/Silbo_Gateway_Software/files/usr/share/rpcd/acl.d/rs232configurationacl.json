@@ -1,0 +1,16 @@
+{
+    "rs232config": {
+        "description": "RS232 Configuration",
+            "read": {
+                "uci": [
+                    "RS232DeviceConfigGeneric"
+                ]
+            },
+ 
+            "write": {
+                "uci": [
+                    "RS232DeviceConfigGeneric"
+                ]
+            }
+    }
+}

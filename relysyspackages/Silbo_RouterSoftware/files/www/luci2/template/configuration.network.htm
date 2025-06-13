@@ -1,0 +1,343 @@
+<div id="map"></div>
+<div style="text-align: right;">
+    <tr>
+        <td class="text-right">
+            <button type="button" id="btn_update" title="" class="btn btn-success">Update</button>
+        </td>
+    </tr>
+</div>
+
+<div class="tab-content" id="tabs">
+	<ul class="nav nav-tabs" id="my_tab"  data-tabs="tabs">
+		
+		<li class="TabC TabEth active">
+			<a id=":w" href="#tab_ethernet" data-toggle="tab">Ethernet Settings
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabDhR">
+			<a id=":w" href="#tab_dhcprelay" data-toggle="tab">Relay Server
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabCel">
+	    <a id="sectiontab_cellular" href="#tab_cellular" data-toggle="tab">Cellullar Settings 
+              <span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabBand">
+			<a id="sectiontab_bandop" href="#tab_bandop" data-toggle="tab">Band and Operator Lock
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabWifi">
+	        <a id="sectiontab_wifi" href="#tab_wifi" data-toggle="tab">Wifi Setttings
+              <span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabGuest">
+	        <a id="sectiontab_guestwifi" href="#tab_guestwifi" data-toggle="tab">Guest Wifi 
+              <span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabWireless">
+	        <a id="sectiontab_wireless" href="#tab_wireless" data-toggle="tab">Wireless Schedule
+              <span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabSMS">
+	        <a id="sectiontab_sms" href="#tab_sms" data-toggle="tab">SMS Settings 
+              <span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabLoop">
+	        <a id="sectiontab_loopback" href="#tab_loopback" data-toggle="tab">Loopback IP Settings 
+              <span class="badge"></span>
+			</a>
+		</li>
+		
+	</ul>
+	
+	
+	    <div class="tab-pane TabC TabEth active"  id="tab_ethernet">
+    	<div id="section_network_interface_port"></div>
+		<div id="Mansection_network_interface_port" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Add New Interface:</h3>
+			</div>
+			
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr class="cbi-section-table-titles">
+						<th class="cbi-section-table-cell">Interface</th>
+						<th class="cbi-section-table-cell">Physical Device</th>
+						<th class="cbi-section-table-cell">Type</th>
+						<th class="cbi-section-table-cell"> </th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr class="luci2-section-item" id="sectionitem_netint_redirect_newRedirect" data-luci2-sid="newRedirect">
+
+                        <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_netint_redirect_newRedirect_interfacename" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+			
+			            <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_vlan_redirect_newRedirect_physicaldevice" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<select class="form-control luci2-field-validate" id="field_vlan_redirect_newRedirect_type">
+										<option value="LAN">LAN</option>
+										<option value="WAN">WAN</option>
+									</select>
+									
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+			
+						
+						<td class="text-right" style="width: 1%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewPortForward" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>	 
+		</div>
+	</div>
+	
+	
+	
+	 <div class="tab-pane TabC TabDhR"  id="tab_dhcprelay">
+    	<div id="section_dhcprelay_port"></div>
+		<div id="Mansection_dhcprelay_port" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Add New Interface:</h3>
+			</div>
+			
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr class="cbi-section-table-titles">
+						<th class="cbi-section-table-cell">Interface</th>
+						<th class="cbi-section-table-cell">Start IP Address</th>
+						<th class="cbi-section-table-cell">End IP Address</th>
+						<th class="cbi-section-table-cell">Netmask</th>
+						<th class="cbi-section-table-cell">Lease Time</th>
+						<th class="cbi-section-table-cell"> </th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr class="luci2-section-item" id="sectionitem_dhcprelay_redirect_newRedirect" data-luci2-sid="newRedirect">
+
+                     <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<select class="form-control luci2-field-validate" id="field_dhcprelay_redirect_newRedirect_interfacename">
+										<option value="eth0.1">eth0.1</option>
+										<option value="ra0">ra0</option>
+									</select>
+									
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+
+
+                        <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_dhcprelay_redirect_newRedirect_startip" oninput="ValidateIPv4(event)" type="text" placeholder="192.168.10.100">
+									<div id="validateIPAddress" class="luci2-field-error label label-danger"
+                                    style="display:none">Enter a valid IPv4 address </div>
+									
+								</div>
+							</div>
+						</td>
+			
+			            <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_dhcprelay_redirect_newRedirect_endip" oninput="ValidateIPv42(event)" type="text" placeholder="192.168.10.250">
+									<div id="validateIPAddress2" class="luci2-field-error label label-danger"
+                                    style="display:none">Enter a valid IPv4 address </div>
+								</div>
+							</div>
+						</td>
+						
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_dhcprelay_redirect_newRedirect_netmask" oninput="ValidateIPv43(event)" type="text" placeholder="255.255.255.0">
+									<div id="validateIPAddress3" class="luci2-field-error label label-danger"
+                                    style="display:none">Enter a valid Netmask </div>
+								</div>
+							</div>
+						</td>
+						
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_dhcprelay_redirect_newRedirect_leasetime" type="text" placeholder="12">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+			
+						
+						<td class="text-right" style="width: 1%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewRelay" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>	 
+		</div>
+	</div>
+	
+	
+	
+	
+		
+		<div class="tab-pane TabC TabCel" id="tab_cellular">
+			<div id="section_cellular"></div>
+			
+			
+<!--
+	         <table class="table table-condensed table-hover">
+						<td class="text-right" style="width: 5%;">							
+							<button type="button" id="btn_bgp_general_update" title="" class="btn btn-success">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>	
+-->
+			
+	   </div>
+	   
+	   
+	  <div class="tab-pane TabC TabBand" id="tab_bandop">
+			<div id="section_bandop"></div>
+	  </div>
+
+      <div class="tab-pane TabC TabWifi" id="tab_wifi">
+			<div id="section_wifi"></div>
+	 </div>
+			
+	  <div class="tab-pane TabC TabGuest" id="tab_guestwifi">
+			<div id="section_guestwifi"></div>
+	 </div>
+	 
+	  <div class="tab-pane TabC TabWireless" id="tab_wireless">
+			<div id="section_wireless"></div>
+	 </div>
+	 
+	  <div class="tab-pane TabC TabSMS" id="tab_sms">
+			<div id="section_sms"></div>
+	 </div>
+	 
+	  <div class="tab-pane TabC TabLoop" id="tab_loopback">
+			<div id="section_loopback"></div>
+	 </div>			   
+	
+</div>
+
+<style>
+	label{
+		font: normal normal normal 13px/18px Poppins;
+	color: #2E384D;
+	}
+	
+	.switch {
+	  position: relative;
+	  display: inline-block;
+	  width: 40px;
+	  height: 22px;
+	  top:-3px;
+	}
+	
+	.switch input { 
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+	
+	.slider {
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: #ccc;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+	
+	.slider:before {
+	  position: absolute;
+	  content: "";
+	  height: 18px;
+	  width: 18px;
+	  left: 2px;
+	  bottom: 2px;
+	  background-color: white;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+	
+	input:checked + .slider {
+	  background-color: #4caf50;
+	}
+	
+	input:focus + .slider {
+	  box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked + .slider:before {
+	  -webkit-transform: translateX(18px);
+	  -ms-transform: translateX(18px);
+	  transform: translateX(18px);
+	}
+	
+	/* Rounded sliders */
+	.slider.round {
+	  border-radius: 34px;
+	}
+	
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+	.btnApply{
+	  width:150px;
+	}
+</style>
+

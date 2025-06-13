@@ -1,0 +1,16 @@
+{
+    "temperatureconfig": {
+        "description": "Temperature Sensors Configuration",
+            "read": {
+                "uci": [
+                    "temperatureconfig"
+                ]
+            },
+ 
+            "write": {
+                "uci": [
+                    "temperatureconfig"
+                ]
+            }
+    }
+}

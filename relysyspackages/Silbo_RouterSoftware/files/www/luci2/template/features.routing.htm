@@ -1,0 +1,576 @@
+<div class="tab-content" id="tabs">
+
+	<div class="alert alert-info" role="alert"
+		style="background-color: white; border: 2px solid #90CAF9; color: black;">
+		<strong>NOTE: Please click on update after editing/deleting.</strong>
+	</div>
+	<div style="text-align: right;">
+		<tr>
+			<td class="text-right">
+				<button type="button" id="btn_update" title="" class="btn btn-success">Update</button>
+			</td>
+		</tr>
+	</div>
+
+	<ul class="nav nav-tabs" id="my_tab" data-tabs="tabs">
+		<li class="TabC Tabsr active">
+			<a id=":w" href="#Static_routes" data-toggle="tab">Custom IPV4 Routes
+				<span class="badge"></span>
+			</a>
+		</li>
+
+		<li class="TabC TabAsr">
+			<a id="section_advanced_static_routes" href="#Advanced_Static_routes" data-toggle="tab">Custom Tables &
+				Rules
+				<span class="badge"></span>
+			</a>
+		</li>
+	</ul>
+
+
+
+	<div class="tab-pane TabC Tabsr active" id="Static_routes">
+		<h3 class="panel-title" style="margin-bottom: 20px;">Table Routes :</h3>
+		<div id="section_staticroutes_port"></div>
+		<div id="Mansection_staticroutes_port" class="panel panel-default">
+
+			<table class="table table-condensed table-hover">
+				<h3 class="panel-title" style="margin-bottom: 20px;">Add New Custom Route :</h3>
+				<thead>
+					<th class="cbi-section-table-cell">Route Type</th>
+					<th class="cbi-section-table-cell">Table ID</th>
+					<th class="cbi-section-table-cell">Target</th>
+					<th class="cbi-section-table-cell">IPV4 Netmask</th>
+					<th class="cbi-section-table-cell">IPV4 Gateway</th>
+					<th class="cbi-section-table-cell">Interface</th>
+					<th class="cbi-section-table-cell">Metric</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<select class="form-control luci2-field-validate"
+									id="field_staticroutes_routes_newRoutes_routetype">
+									<option value="unicast">Unicast</option>
+									<option value="blackhole">Blackhole</option>
+									<option value="prohibit">Prohibit</option>
+									<option value="unreachable">Unreachable</option>
+									<option value="throw">Throw</option>
+									<option value="broadcast">Broadcast</option>
+									<option value="multicast">Multicast</option>
+								</select>
+								<input type="text" style="display: none;">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+
+
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<select class="form-control luci2-field-validate"
+									id="field_staticroutes_routes_newRoutes_Table" onchange="handle_table_Selection()">
+									<option value="table main">Table main</option>
+									<option value="custom">custom</option>
+								</select>
+								<input type="text" class="form-control luci2-field-validate custom-value-input3"
+									id="field_staticroutes_routes_newRoutes_Table1" style="display: none;">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+					<script>
+						function handle_table_Selection() {
+							var dropdown = document.getElementById("field_staticroutes_routes_newRoutes_Table");
+							var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+							var customInput = document.querySelector(".custom-value-input3");
+
+							if (selectedOption === "custom") {
+								dropdown.style.display = "none";
+								customInput.style.display = "block";
+							} else {
+								dropdown.style.display = "block";
+								customInput.style.display = "none";
+							}
+						}
+					</script>
+
+
+
+
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate luci2-field-ipv4"
+									id="field_staticroutes_routes_newRoutes_target" type="text" placeholder="0.0.0.0"
+									style="width: 125px;">
+								<div class="luci2-field-error label label-danger" style="display: none;"
+									id="validationResult"></div>
+							</div>
+						</div>
+					</td>
+
+					<script>
+						// Function to validate the IPv4 address
+						function validateIPv4Address(input) {
+							// Regular expression pattern for IPv4 validation
+							var ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+
+							// Check if the input matches the IPv4 pattern
+							if (ipv4Pattern.test(input)) {
+								return true; // Valid IPv4 address
+							} else {
+								return false; // Invalid IPv4 address
+							}
+						}
+
+						// Function to handle the input field validation
+						function validateInput() {
+							var inputField = document.getElementById('field_staticroutes_routes_newRoutes_target');
+							var validationResult = document.getElementById('validationResult');
+
+							// Get the input value
+							var inputValue = inputField.value;
+
+							// Validate the input value
+							var isValid = validateIPv4Address(inputValue);
+
+							// Display or hide the error message based on the validation result
+							if (isValid) {
+								validationResult.style.display = 'none'; // Hide the error message
+							} else {
+								validationResult.style.display = 'block'; // Show the error message
+								validationResult.innerText = 'Invalid IPv4 address'; // Set the error message text
+							}
+						}
+
+						// Add an event listener to the input field to trigger validation on input change
+						var inputField = document.getElementById('field_staticroutes_routes_newRoutes_target');
+						inputField.addEventListener('input', validateInput);
+					</script>
+
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate"
+									id="field_staticroutes_routes_newRoutes_ipv4netmask" type="text"
+									placeholder="255.255.255.255">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+
+					<script>
+						// Function to validate the netmask
+						function validateNetmask(netmask) {
+							// Regular expression pattern for netmask validation
+							var netmaskPattern = /^(\b(255|254|252|248|240|224|192|128|0)\.){3}(255|254|252|248|240|224|192|128|0)$/;
+
+							// Check if the input matches the netmask pattern
+							if (netmaskPattern.test(netmask)) {
+								return true; // Valid netmask
+							} else {
+								return false; // Invalid netmask
+							}
+						}
+
+						// Function to handle the input field validation
+						function validateInput() {
+							var inputField = document.getElementById('field_staticroutes_routes_newRoutes_ipv4netmask');
+							var errorLabel = inputField.parentNode.querySelector('.luci2-field-error');
+
+							// Get the input value
+							var inputValue = inputField.value;
+
+							// Validate the input value
+							var isValid = validateNetmask(inputValue);
+
+							// Display or hide the error label based on the validation result
+							if (isValid) {
+								errorLabel.style.display = 'none'; // Hide the error label
+							} else {
+								errorLabel.style.display = 'block'; // Show the error label
+								errorLabel.innerText = 'Invalid netmask'; // Set the error message text
+							}
+						}
+
+						// Add an event listener to the input field to trigger validation on input change
+						var inputField = document.getElementById('field_staticroutes_routes_newRoutes_ipv4netmask');
+						inputField.addEventListener('input', validateInput);
+					</script>
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate"
+									id="field_staticroutes_routes_newRoutes_ipv4gateway" type="text"
+									placeholder="0.0.0.0" style="width: 130px;">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+					<script>
+						// Function to validate the IPv4 address
+						function validateIPv4Address(input) {
+							// Regular expression pattern for IPv4 validation
+							var ipv4Pattern = /^(\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+
+							// Check if the input matches the IPv4 pattern
+							if (ipv4Pattern.test(input)) {
+								return true; // Valid IPv4 address
+							} else {
+								return false; // Invalid IPv4 address
+							}
+						}
+
+						// Function to handle the input field validation
+						function validateInput() {
+							var inputField = document.getElementById('field_staticroutes_routes_newRoutes_ipv4gateway');
+							var errorLabel = inputField.parentNode.querySelector('.luci2-field-error');
+
+							// Get the input value
+							var inputValue = inputField.value;
+
+							// Validate the input value
+							var isValid = validateIPv4Address(inputValue);
+
+							// Display or hide the error label based on the validation result
+							if (isValid) {
+								errorLabel.style.display = 'none'; // Hide the error label
+							} else {
+								errorLabel.style.display = 'block'; // Show the error label
+								errorLabel.innerText = 'Invalid IPV4 address'; // Set the error message text
+							}
+						}
+
+						// Add an event listener to the input field to trigger validation on input change
+						var inputField = document.getElementById('field_staticroutes_routes_newRoutes_ipv4gateway');
+						inputField.addEventListener('input', validateInput);
+					</script>
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<select class="form-control luci2-field-validate"
+									id="field_staticroutes_routes_newRoutes_interface"
+									onchange="handleInterfaceSelection()">
+									<option value="eth0">eth0</option>
+									<option value="eth0.1">eth0.1</option>
+									<option value="eth0.5">eth0.5</option>
+									<option value="lo">lo</option>
+									<option value="ra0">ra0</option>
+									<option value="ra1">ra1</option>
+									<option value="usb0">usb0</option>
+									<option value="wwan0">wwan0</option>
+									<option value="custom">custom</option>
+								</select>
+								<input type="text" class="form-control luci2-field-validate custom-value-input"
+									id="field_staticroutes_routes_newRoutes_inter" style="display: none;">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+					<script>
+						function handleInterfaceSelection() {
+							var dropdown = document.getElementById("field_staticroutes_routes_newRoutes_interface");
+							var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+							var customInput = document.querySelector(".custom-value-input");
+
+							if (selectedOption === "custom") {
+								dropdown.style.display = "none";
+								customInput.style.display = "block";
+							} else {
+								dropdown.style.display = "block";
+								customInput.style.display = "none";
+							}
+						}
+					</script>
+
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate small-input"
+									id="field_staticroutes_routes_newRoutes_metric" type="text" placeholder="0"
+									style="width: 80px;" oninput="validatePositiveInteger(this)">
+								<div class="luci2-field-error label label-danger" id="metricError"
+									style="display: none; color: rgb(235, 233, 233);">
+									Positive integers only
+								</div>
+							</div>
+						</div>
+					</td>
+
+					<script>
+						function validatePositiveInteger(input) {
+							var errorLabel = document.getElementById("metricError");
+
+							// Remove non-numeric characters except positive integers
+							input.value = input.value.replace(/[^0-9]/g, '');
+
+							// Check if the input is empty or zero
+							if (input.value === '' || parseInt(input.value) <= 0) {
+								errorLabel.style.display = "block"; // Show error message
+							} else {
+								errorLabel.style.display = "none"; // Hide error message
+							}
+						}
+
+					</script>
+
+
+
+					<td class="text-right" style="width: 1%;">
+						<div class="btn-group">
+							<button type="button" id="AddNewStaticRoutes" title="" class="btn btn-success">Add</button>
+						</div>
+					</td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+	<div class="tab-pane TabC TabAsr" id="Advanced_Static_routes">
+		<h3 class="panel-title" style="margin-bottom: 20px;">Custom Tables & Rules :</h3>
+		<div id="section_advancedstaticroutes_Asr" class="panel panel-default"></div>
+		<div id="Advanced_Static_table" class="panel panel-default">
+			<h3 class="panel-title" style="margin-bottom: 20px;">Add New Custom Table & Rule :</h3>
+			<table class="table table-condensed table-hover">
+				<thead>
+					<th class="cbi-section-table-cell">Rule Type</th>
+					<th class="cbi-section-table-cell">TableID</th>
+					<th class="cbi-section-table-cell">Target(To)</th>
+					<th class="cbi-section-table-cell">IPV4 Netmask</th>
+					<th class="cbi-section-table-cell">From</th>
+					<th class="cbi-section-table-cell">Priority</th>
+					<!-- <th class="cbi-section-table-cell">Interface</th> -->
+					</tr>
+				</thead>
+
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<select class="form-control luci2-field-validate"
+								id="section_advancedstaticroutes_Asr_ruletype">
+								<option value="lookup">Lookup</option>
+								<option value="prohibit">Prohibit</option>
+								<option value="blackhole">Blackhole</option>
+								<option value="unreachable">Unreachable</option>
+							</select>
+							<input type="text" class="form-control luci2-field-validate custom-value-input1"
+								id="section_advancedstaticroutes_Asr_ruletype" style="display: none;">
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+
+
+
+
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<input class="form-control luci2-field-validate" id="section_advancedstaticroutes_Asr_table"
+								type="text" placeholder="100">
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+
+
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<input class="form-control luci2-field-validate" id="section_advancedstaticroutes_Asr_to"
+								type="text" placeholder="0.0.0.0">
+							<div class="luci2-field-error label label-danger" style="display: none;"
+								id="validationResult2">
+							</div>
+						</div>
+					</div>
+				</td>
+				<script>
+					// Function to validate the IPv4 address
+					function validateIPv4Address(input) {
+						// Regular expression pattern for IPv4 validation
+						var ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+
+						// Check if the input matches the IPv4 pattern
+						if (ipv4Pattern.test(input)) {
+							return true; // Valid IPv4 address
+						} else {
+							return false; // Invalid IPv4 address
+						}
+					}
+
+					// Function to handle the input field validation
+					function handleInputValidation() {
+						var inputField = document.getElementById('section_advancedstaticroutes_Asr_to');
+						var validationResult2 = document.getElementById('validationResult2');
+
+						// Get the input value
+						var inputValue = inputField.value;
+
+						// Validate the input value
+						var isValid = validateIPv4Address(inputValue);
+
+						// Display or hide the error message based on the validation result
+						if (isValid) {
+							validationResult2.style.display = 'none'; // Hide the error message
+						} else {
+							validationResult2.style.display = 'block'; // Show the error message
+							validationResult2.innerText = 'Invalid IPv4 address'; // Set the error message text
+						}
+					}
+
+					// Add an event listener to the input field to trigger validation on input change
+					var inputField = document.getElementById('section_advancedstaticroutes_Asr_to');
+					inputField.addEventListener('input', handleInputValidation);
+				</script>
+
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<input class="form-control luci2-field-validate"
+								id="section_advancedstaticroutes_Asr_ipv4netmask" type="text"
+								placeholder="255.255.255.255">
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+
+				<script>
+					// Function to validate the IPv4 address
+					function validateIPv4Address(input) {
+						// Regular expression pattern for IPv4 validation
+						var ipv4Pattern = /^(\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+
+						// Check if the input matches the IPv4 pattern
+						if (ipv4Pattern.test(input)) {
+							return true; // Valid IPv4 address
+						} else {
+							return false; // Invalid IPv4 address
+						}
+					}
+
+					// Function to handle the input field validation
+					function validateInput() {
+						var inputField = document.getElementById('section_advancedstaticroutes_Asr_ipv4netmask');
+						var errorLabel = inputField.parentNode.querySelector('.luci2-field-error');
+
+						// Get the input value
+						var inputValue = inputField.value;
+
+						// Validate the input value
+						var isValid = validateIPv4Address(inputValue);
+
+						// Display or hide the error label based on the validation result
+						if (isValid) {
+							errorLabel.style.display = 'none'; // Hide the error label
+						} else {
+							errorLabel.style.display = 'block'; // Show the error label
+							errorLabel.innerText = 'Invalid Netmask address'; // Set the error message text
+						}
+					}
+
+					// Add an event listener to the input field to trigger validation on input change
+					var inputField = document.getElementById('section_advancedstaticroutes_Asr_ipv4netmask');
+					inputField.addEventListener('input', validateInput);
+				</script>
+
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<input class="form-control luci2-field-validate" id="section_advancedstaticroutes_Asr_from"
+								type="text" placeholder="0.0.0.0">
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+				<script>
+					// Function to validate the IPv4 address
+					function validateIPv4Address(input) {
+						// Regular expression pattern for IPv4 validation
+						var ipv4Pattern = /^(\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+
+						// Check if the input matches the IPv4 pattern
+						if (ipv4Pattern.test(input)) {
+							return true; // Valid IPv4 address
+						} else {
+							return false; // Invalid IPv4 address
+						}
+					}
+
+					// Function to handle the input field validation
+					function validateInput() {
+						var inputField = document.getElementById('section_advancedstaticroutes_Asr_from');
+						var errorLabel = inputField.parentNode.querySelector('.luci2-field-error');
+
+						// Get the input value
+						var inputValue = inputField.value;
+
+						// Validate the input value
+						var isValid = validateIPv4Address(inputValue);
+
+						// Display or hide the error label based on the validation result
+						if (isValid) {
+							errorLabel.style.display = 'none'; // Hide the error label
+						} else {
+							errorLabel.style.display = 'block'; // Show the error label
+							errorLabel.innerText = 'Invalid IPV4 address'; // Set the error message text
+						}
+					}
+
+					// Add an event listener to the input field to trigger validation on input change
+					var inputField = document.getElementById('section_advancedstaticroutes_Asr_from');
+					inputField.addEventListener('input', validateInput);
+				</script>
+
+
+
+
+
+				<td>
+					<div class="luci2-field">
+						<div class="luci2-field-widget">
+							<input class="form-control luci2-field-validate"
+								id="section_advancedstaticroutes_Asr_priority" type="text" placeholder="0">
+							<div class="luci2-field-error label label-danger" style="display: none;"></div>
+						</div>
+					</div>
+				</td>
+
+				<td class="text-right" style="width: 1%;">
+					<div class="btn-group">
+						<button type="button" id="AddNewAdvancedstaticRule" title=""
+							class="btn btn-success">Add</button>
+					</div>
+				</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+	<style>
+		#section_staticroutes_port,
+		#section_Staticroutes_parent,
+		#section_Staticroutes_ddos,
+		#section_Staticroutes_rules,
+		#Advanced_Static_table {
+			border-color: #dddddd;
+			background: #FFFFFF 0% 0% no-repeat padding-box;
+			box-shadow: 0px 25px 30px #0000001a;
+			border: 1px solid #70707038;
+			border-radius: 10px;
+			width: 95%;
+			padding: 17px;
+			margin-bottom: 10px;
+		}
+	</style>

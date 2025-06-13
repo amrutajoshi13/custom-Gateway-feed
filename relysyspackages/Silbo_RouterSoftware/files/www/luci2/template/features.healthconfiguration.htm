@@ -1,0 +1,167 @@
+
+<div id="senderconfig">
+	
+<div class="tab-content" id="tabs" id="senderconfig">
+	<ul class="nav nav-tabs" id="my_tab"  data-tabs="tabs">	
+		<li class="TabC Tabfm active">
+			<a id="sectiontab_firewall_marking" href="#tab_diosender" data-toggle="tab">Cloud configration
+				<span class="badge"></span>
+			</a>
+		</li>
+		<li class="TabC TabZf">
+			<a id="sectiontab_firewall_zonefor" href="#tab_zonefor" data-toggle="tab">Parameter Configration
+	        	<span class="badge"></span>
+			</a>
+		</li>
+	</ul>
+
+	<div class="tab-pane TabC Tabfm active"  id="tab_diosender">
+		<div id="sectiontab_dio_sender"></div>
+		<div id="Mansectiontab_dio_sender" class="panel panel-default">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Upload Certificates archive as ZIP</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-condensed table-hover">
+						<tbody>
+							<tr>
+								<td style="width: 60%;">
+									<p><b>Upload</b><br/>
+									Upload Certificates if Publish protocol is MQTT and authentication mode is TLS & CA.
+									</p>
+								</td>
+								<td>
+									<div class="btn-group btn-group-sm">
+										<button class="btn btn-primary" id="btn_upload" style="width:128px" title="Upload" type="button">Upload</button>
+										<button class="btn btn-primary" id="btn_delete" style="width:128px" title="Delete" type="button">Delete</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	    </div>
+    </div>
+
+	<div class="tab-pane TabC TabZf"  id="tab_zonefor">
+		<div id="section_firewall_zonefor"></div>	
+		<div id="Mansection_firewall_zonefor" class="panel panel-default" >
+			<div class="panel-heading">
+				<h3 class="panel-title">Parameter Sender Configuration:</h3>
+			</div>
+			
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr class="cbi-section-table-titles">
+						<th class="cbi-section-table-cell">Field Content</th>
+						<th class="cbi-section-table-cell">Field JSON Key Name</th>
+						<th class="cbi-section-table-cell"> </th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr class="luci2-section-item" id="sectionitem_firewall_zone_newZone" data-luci2-sid="newZone">
+
+		   <td>
+				<div class="luci2-field">
+				 <div class="luci2-field-widget">
+					<select class="form-control luci2-field-validate" id="field_firewall_zone_newZone_src">
+						<option value="Device_ID">Deviceid</option>
+						<option value="Device_Model">DeviceModel</option>
+						<option value="Router_Firmware_Version">RouterFirmwareVersion</option>
+						<option value="Gateway_Firmware_Version">GatewayFirmwareVersion</option>
+						<option value="Ethernet_WAN_MAC_ID">EthernetWANMACID</option>
+						<option value="System_Uptime">SystemUptime</option>
+						<option value="Average_CPU_Usage">AverageCPUUsage</option>
+						<option value="RAM_Usage">RAMUsage</option>
+						<option value="Flash_Usage">FlashUsage</option>
+						<option value="WiFi_SSID">WiFiSSID</option>
+						<option value="No_of_DHCP_Leases">NoofDHCPLeases</option>
+						<option value="Connection_Type">ConnectionType</option>
+						<option value="Connection_Status">ConnectionStatus</option>
+						<option value="Internet_Uptime">InternetUptime</option>
+						<option value="Active_WAN_IP">WANIP</option>
+						<option value="LAN_IP">LANIP</option>
+						<option value="CPIN_Status">CPINStatus</option>
+						<option value="ICCID">ICCIDa</option>
+						<option value="IMSI">IMSIb</option>
+						<option value="Mobile_Operator_Name">MobileOperatorName</option>
+						<!-- <option value="imei">IMEI</option> -->
+						<option value="Mobile_Operator_Code">MobileOperatorCode</option>
+                        <option value="CREG_Status">CREGStatus</option>                                                     
+						<option value="CGATT_Status">CGATTStatus</option>
+						<option value="SIM_RAT">SIMRAT</option>
+						<option value="Mobile_Signal_CSQ">MobileSignalCSQ</option>
+						<option value="RSRP_SINR">RSRPSINR</option>
+						<option value="Cellular_WAN_Statistics_Daily">daily_datausage</option>
+						<option value="Cellular_WAN_Statistics_Monthly">monthly_datausage</option>
+						<option value="Device_Last_PowerOFF_Time">PowerOFFTime</option>
+						<option value="Device_Last_PowerOFF_Reason">PowerOFFreason</option>
+						<option value="Device_Last_PowerON_Time">PowerONTime</option>
+						<option value="Device_Temperature">Temperature</option>
+						<option value="Device_UUID">DeviceUUID</option>
+						<option value="CPU_avg">CPUavg</option>
+						<option value="CSQ">DeviceCSQ</option>
+						<option value="Customfield1">NHCustomparam1</option>
+						<option value="Customfield2">NHCustomparam2</option>
+						<option value="Customfield3">NHCustomparam3</option>
+			          </select>
+                         <input type="text" class="form-control luci2-field-validate custom-value-input" id="field_firewall_zone_newZone_srczone"  style="display: none;">
+                			<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>	
+			<td>
+				<div class="luci2-field">
+				 <div class="luci2-field-widget">
+					<!-- <select class="form-control luci2-field-validate" id="field_firewall_zone_newZone_dest"> -->
+                         <input type="text" class="form-control luci2-field-validate custom-value-input2" id="field_firewall_zone_newZone_destzone" type="text" placeholder="">
+                			<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>	
+	
+						<td class="text-right" style="width: 1%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewzoneForwarding" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+				<div class="btn-group">
+					<button type="button" id="UpdateZoneForwarding" title="" class="btn btn-success">Update</button>
+				</div>	
+		<div class="row">
+			<div class="col-md-9">
+				<div class="form-group">
+					<textarea class="form-control" disabled style="margin-top:15px;resize: none;display: none; width: 125%;" cols="12" rows="4" id="jsoninfo"></textarea>
+				</div>				
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-info" id='addButton' onclick="showJson()">Show JSON</button>
+	   </div>
+    </div>
+	
+</div>
+
+</div>
+
+<style>
+#section_firewall_snat,#section_firewall_rules,#section_firewall_zone{
+border-color: #dddddd;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 25px 30px #0000001a;
+    border: 1px solid #70707038;
+    border-radius: 10px;
+    width:95%;
+    padding: 17px;
+    margin-bottom: 10px;
+}
+</style>
+
+

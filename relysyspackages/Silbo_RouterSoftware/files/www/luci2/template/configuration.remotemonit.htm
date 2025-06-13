@@ -1,0 +1,97 @@
+<div id="map"></div>
+<div class="tab-content" id="tabs">
+	<ul class="nav nav-tabs" id="my_tab"  data-tabs="tabs">
+		
+		<li class="TabC TabSt">
+			<a id="sectiontab_routing_status" href="#tab_status" data-toggle="tab">Status
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		
+		<li class="TabC TabGn active">
+			<a id="sectiontab_vpn_general" href="#tab_general" data-toggle="tab">General Settings 
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC Tabnms">
+			<a id=":w" href="#tab_nms" data-toggle="tab">NMS 
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabTr">
+			<a id="sectiontab_tr" href="#tab_tr" data-toggle="tab">TR_069
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		
+<!--
+		<li class="TabC Tabtr">
+			<a id=":w" href="#tab_tr" data-toggle="tab">TR_069
+				<span class="badge"></span>
+			</a>
+		</li>
+-->
+	
+	</ul>
+	
+	
+		<div class="tab-pane TabC TabSt" id="tab_status">
+		<div id="section_routing_status"></div>
+
+		<table class="table table-condensed table-hover">
+			<td class="text-right" style="width: 10%;">
+				<button type="button" id="btn_nmsstatus_refresh" title="" class="btn btn-success">Refresh</button>
+			</td>
+			</tr>
+			</tbody>
+		</table>
+
+	</div>
+			
+		<div class="tab-pane TabC TabGn active" id="tab_general">
+			<div id="section_vpn_general"></div>
+	   </div>
+	   
+	   <div class="tab-pane TabC TabTr" id="tab_tr">
+			<div id="section_tr"></div>
+	   </div>
+	   
+	  
+<!--
+		 <div class="tab-pane TabC Tabtr" id="tab_tr">
+			<div id="section_tr"></div>
+		</div> 
+		
+-->
+			       		
+	<div class="tab-pane TabC Tabnms"  id="tab_nms">
+		<div id="section_config_nms"></div>	
+		<div id="Mansection_firewall_port" class="panel panel-default">
+		<div class="panel panel-default">
+       
+       <div class="panel-heading">
+                <h3 class="panel-title"><%:Upload Key file and start NMS%></h3>
+       </div>
+       
+        <div class="panel-body">
+                <table class="table table-condensed table-hover">
+                        <tbody>
+			       <tr>
+                                                               
+                                      <td>
+                                            <div class="btn-group btn-group-sm" id="btn-group"></div>
+                                      </td>
+                               </tr>
+                         </tbody>
+                </table>
+        </div>
+</div>
+	
+	
+
+
+</style>

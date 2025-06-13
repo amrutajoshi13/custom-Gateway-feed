@@ -1,0 +1,35 @@
+{
+	"status": {
+		"description": "Status information display",
+		"read": {
+			"ubus": {
+				"iwinfo": [
+					"devices",
+					"info",
+					"assoclist",
+					"phyname"
+				],
+				"system": [
+					"info",
+					"board"
+				],
+				"network.interface": [
+					"status"
+				],
+				"luci2.network": [
+					"conntrack_count",
+					"dhcp_leases",
+					"dhcp6_leases",
+					"arp_table",
+					"routes",
+					"routes6"
+				],
+				"luci2.system": [
+					"diskfree",
+					"syslog",
+					"dmesg",
+					"process_list"
+				]
+			}
+		}
+}

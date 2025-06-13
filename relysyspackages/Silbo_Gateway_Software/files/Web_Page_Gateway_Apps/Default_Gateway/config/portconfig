@@ -1,0 +1,3 @@
+config portconfig 'portconfig'	
+option Ser2netEnable1 '0'
+option Ser2netEnable2 '0'

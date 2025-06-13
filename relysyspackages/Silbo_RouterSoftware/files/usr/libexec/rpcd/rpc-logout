@@ -1,0 +1,28 @@
+#!/bin/sh
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions.sh
+
+logoutScript="/bin/sessionlogout.sh"
+file=""
+
+case "$1" in
+    list)
+        echo '{"configure":{}}'
+        ;;
+    call)
+        case "$2" in
+                    configure)
+                            response=$($logoutScript)
+                            file=$(cat /tmp/logoutresult.txt)
+                            rm  /tmp/logoutresult.txt
+                         	echo "{\"code\":0,\"output\":\"$file\"}"                                                                
+                           ;;                  
+                    *)
+                    echo '{"code":"1","output":"invalid method"}'
+                    exit 1
+        esac #appmanager method
+        ;;
+esac # ubus method
+
+exit 0

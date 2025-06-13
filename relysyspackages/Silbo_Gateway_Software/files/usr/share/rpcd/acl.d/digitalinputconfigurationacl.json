@@ -1,0 +1,17 @@
+{
+	"digitalinputconfig": {
+	"description": "Digital Input Configuration",
+
+		"read": {
+			"uci": [
+				"digitalinputconfig"
+			]
+		},
+	
+	   "write": {
+			"uci": [
+				"digitalinputconfig"
+			]
+		}
+    }
+}

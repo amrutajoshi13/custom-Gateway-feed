@@ -1,0 +1,18 @@
+
+config FixedPacketConfigGeneric 'fixedpacketconfig'
+	option IMEINo '359779080707934'
+	option IMEINoEnable '1'
+	option SiteIDEnable '1'
+	option SiteID 'SiteID'
+	option DeviceIDEnable '1'
+	option DeviceID 'GD44'
+	option OverallRecordstartmark '['
+	option OverallRecordendmark ']'
+	option Registerstartmark '<'
+	option Registerendmark '>'
+	option InvalidDataCharacter 'N'
+	option FailureDataCharacter 'NA'
+	option MaxNumberofRegisters '100'
+	option storagesize '4GB'
+	option EnableJSON '1'
+

@@ -1,0 +1,12 @@
+
+
+config interface 'board'
+       option serialnum '1'
+       option pcbnum '250-00092-02'
+       option wanmacid '12:12:12:12:12'
+       option lanmacid '12:12:12:12:12'
+       option wifimacid '12:12:12:12:12'
+       option FirmwareVer '1.17'
+       option ApplicationSwVer '1.17_RC5'
+       option imei '9989389389'
+

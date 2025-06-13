@@ -1,0 +1,560 @@
+<div id="map"></div>
+
+<div class="tab-content" id="tabs">
+	
+	<ul class="nav nav-tabs" id="my_tab"  data-tabs="tabs">
+	
+		
+		<li class="TabC TabGn active">
+			<a id="sectiontab_vpn_general" href="#tab_general" data-toggle="tab">General Settings 
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabIP">
+			<a id=":w" href="#tab_ipsec" data-toggle="tab">IPSEC 
+				<span class="badge"></span>
+			</a>
+		</li>
+	
+		
+		<li class="TabC Tabopenvpn">
+			<a id=":w" href="#tab_openvpn" data-toggle="tab">OpenVPN 
+				<span class="badge"></span>
+			</a>
+		</li>
+
+		<li class="TabC TabWire">
+			<a id=":w" href="#tab_Wireguard" data-toggle="tab">Wireguard 
+				<span class="badge"></span>
+			</a>
+		</li>
+
+		<li class="TabC Tabzero">
+			<a id=":w" href="#tab_zerotier" data-toggle="tab">Zerotier 
+				<span class="badge"></span>
+			</a>
+		</li>
+
+		<li class="TabC TabPPTP">
+			<a id=":w" href="#tab_PPTP" data-toggle="tab">PPTP
+				<span class="badge"></span>
+			</a>
+		</li>
+
+		 <li class="TabC TabL2TP">
+			<a id=":w" href="#tab_L2TP" data-toggle="tab">L2TP
+				<span class="badge"></span>
+			</a>
+		</li> 
+
+
+				
+
+	
+	</ul>
+		
+		<div class="tab-pane TabC TabGn active" id="tab_general">
+			<div id="section_vpn_general"></div>
+	   </div>
+	   
+	   
+	  
+		 <div class="tab-pane TabC Tabpptp" id="tab_pptp">
+			<div id="section_pptp"></div>
+		</div> 
+		
+			       		
+	<div class="tab-pane TabC Tabip"  id="tab_ipsec">
+		<div id="section_vpn_ipsec"></div>	
+		<div id="Mansection_firewall_port" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">New Connection</h3>
+			</div>
+			
+			<table class="table table-condensed table-hover">
+				<tbody>
+					
+					<tbody data-toggle="validator">
+					<tr class="luci2-section-item" id="sectionitem_NewEvent" data-luci2-sid="NewEvent">
+						<td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_NewEvent_name" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+					</tr>	
+					<tr class="luci2-section-item" id="sectionitem_firewall_redirect_newRedirect" data-luci2-sid="newRedirect">
+						<td class="text-right" style="width: 100%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewconnectionipsec" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>	
+			<table class="table table-condensed table-hover">
+				<td class="text-center" style="width: 5%;">							
+					<button type="button" title="" onclick="update('ipsec')" class="btn btn-success">Update</button>
+				</td>
+			</tr>
+			</tbody>		
+			</table>
+	        
+			
+			
+	</div>
+			
+	</div>
+	
+	 <div class="tab-pane TabC Tabopenvpn" id="tab_openvpn">
+		<div id="section_openvpn"></div>
+
+
+<div class="tab-pane TabC Tabopenvpn"  id="tab_openvpn">
+	<div id="section_vpn_openvpn"> </div>   
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Add New Configuration :</h3>
+		</div>
+	
+		<table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="field_NewEvent_name1" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate" id="field_firewall_rule_NewRule_name" type="text" placeholder="">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+					
+					<td class="text-right" style="width: 1%;">
+						<div class="btn-group">
+							<button type="button" title="" id="AddNewconnectionopenvpn" class="btn btn-success">Add</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="table table-condensed table-hover">
+			<td class="text-center" style="width: 5%;">							
+				<button type="button" title="" onclick="update('openvpn')" class="btn btn-success">Update</button>
+			</td>
+		</tr>
+		</tbody>		
+		</table>
+	</div>
+</div> 
+	 </div>
+
+ <!-- <table class="table table-condensed table-hover">
+		<td class="text-center" style="width: 5%;">						              
+			<div class = "form-group">
+			  <div class="btn-group btn-group-sm" id="btn-group"></div>               
+			</div>
+		</td>
+   </table>                                 
+</div> -->
+
+
+
+
+<div class="tab-pane TabC TabWire"  id="tab_Wireguard">
+	<div id="section_vpn_wireguard"> </div>   
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Add New Configuration :</h3>
+		</div>
+	
+		<table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+					<th class="cbi-section-table-cell">Role</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="field_NewEvent_name2" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate" id="field_wireguard_Name" type="text" placeholder="">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+					
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<select class="form-control luci2-field-validate" id="field_wireguard_Role" type="text" placeholder="">
+									<option value="SERVER">Server</option>
+									<option value="CLIENT">Client</option>
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+
+					<td class="text-right" style="width: 1%;">
+						<div class="btn-group">
+							<button type="button" title="" id="AddNewconnectionwireguard" class="btn btn-success">Add</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="table table-condensed table-hover">
+			<td class="text-center" style="width: 5%;">							
+				<button type="button" title="" onclick="update('wireguard')" class="btn btn-success">Update</button>
+			</td>
+		</tr>
+		</tbody>		
+		</table>
+		
+	</div>
+</div>
+
+
+<div class="tab-pane TabC Tabzero"  id="tab_zerotier">
+	<div id="section_vpn_zerotier"> </div>   
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Add New Configuration :</h3>
+		</div>
+	
+		<table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="field_NewEvent_name3" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate" id="field_firewall_rule2" type="text" placeholder="">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+
+
+					<td class="text-right" style="width: 1%;">
+						<div class="btn-group">
+							<button type="button" title="" id="AddNewconnectionzerotier" class="btn btn-success">Add</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="table table-condensed table-hover">
+			<td class="text-center" style="width: 5%;">							
+				<button type="button" title="" onclick="update('zerotier')" class="btn btn-success">Update</button>
+			</td>
+		</tr>
+		</tbody>		
+		</table>
+		
+	</div>
+</div>
+
+<div class="tab-pane TabC TabPPTP"  id="tab_PPTP">
+	<div id="section_vpn_PPTP"> </div>   
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Add New Configuration :</h3>
+			<br>
+			<p><b>NOTE:</b> MPPE encryption settings need to be the same across all simultaneously enabled connections.</p>
+		</div>
+		
+
+			<!-- Note added here
+			<div class="alert alert-info" role="alert" style="background-color: white;">
+				<strong>NOTE:</strong>MPPE encryption settings need to be the same across all simultaneously enabled connections.
+			</div> -->
+
+
+		<table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+					<th class="cbi-section-table-cell">Role</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="sectionitem_firewall_rule_NewRule" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+						<div class="luci2-field-widget">
+						<input 
+							class="form-control luci2-field-validate" 
+							id="field_PPTPD_rule_name" 
+							type="text" 
+							maxlength="10" 
+							oninput="validateLength(this)"
+							placeholder="Enter Name (max 10 characters)"
+							/>
+							<div class="luci2-field-error label label-danger" id="error-message" style="display: none;">
+							Input must not exceed 10 characters.
+							</div>
+						</div>
+						</div>
+					</td>
+ 
+			<script>
+				function validateLength(input) {
+				var errorMsg = document.getElementById("error-message");
+				if (input.value.length > 10) {
+					errorMsg.style.display = "block";
+				} else {
+					errorMsg.style.display = "none";
+				}
+				}
+			</script>
+					
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<select class="form-control luci2-field-validate" id="field_PPTPD_rule_Role" type="text" placeholder="">
+									<option value="SERVER">Server</option>
+									<option value="CLIENT">Client</option>
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+	
+		<!-- <table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="field_NewEvent_name4" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate" id="field_firewall_rule3" type="text" placeholder="">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td> -->
+
+
+					<td class="text-right" style="width: 1%;">
+						<div class="btn-group">
+							<button type="button" title="" id="AddNewconnectionpptpd" class="btn btn-success">Add</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="table table-condensed table-hover">
+			<td class="text-center" style="width: 5%;">							
+				<button type="button" title="" onclick="update('pptpd')" class="btn btn-success">Update</button>
+			</td>
+		</tr>
+		</tbody>		
+		</table>
+		
+	</div>
+</div>
+
+<div class="tab-pane TabC TabL2TP"  id="tab_L2TP">
+	<div id="section_vpn_L2TP"> </div>   
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Add New Configuration :</h3>
+		</div>
+
+		<table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+					<th class="cbi-section-table-cell">Role</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="sectionitem_firewall_rule_NewRule" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+						<div class="luci2-field-widget">
+						<input 
+							class="form-control luci2-field-validate" 
+							id="field_L2TP_rule_name" 
+							type="text" 
+							maxlength="10" 
+							oninput="validateL2TPName(this)"
+							placeholder="Enter Name (max 10 characters)"
+						/>
+							<div class="luci2-field-error label label-danger" id="l2tp-error-message" style="display: none;">
+							Input must not exceed 10 characters.
+							</div>
+						</div>
+						</div>
+					</td>
+ 
+				<script>
+					function validateL2TPName(input) {
+					var errorMsg = document.getElementById("l2tp-error-message");
+					if (input.value.length > 10) {
+						errorMsg.style.display = "block";
+					} else {
+						errorMsg.style.display = "none";
+					}
+					}
+				</script>
+				
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<select class="form-control luci2-field-validate" id="field_L2TP_rule_Role" type="text" placeholder="">
+									<option value="CLIENT">Client</option>
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td>
+	
+		<!-- <table class="table table-condensed table-hover">
+			<thead>
+				<tr class="cbi-section-table-titles">
+					<th class="cbi-section-table-cell">Name</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr class="luci2-section-item" id="field_NewEvent_name4" data-luci2-sid="NewRule">
+					<td>
+						<div class="luci2-field">
+							<div class="luci2-field-widget">
+								<input class="form-control luci2-field-validate" id="field_firewall_rule3" type="text" placeholder="">
+								<div class="luci2-field-error label label-danger" style="display: none;"></div>
+							</div>
+						</div>
+					</td> -->
+
+
+					<td class="text-right" style="width: 1%;">
+						<div class="btn-group">
+							<button type="button" title="" id="AddNewconnectionl2tp" class="btn btn-success">Add</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="table table-condensed table-hover">
+			<td class="text-center" style="width: 5%;">							
+				<button type="button" title="" onclick="update('L2TP')" class="btn btn-success">Update</button>
+			</td>
+		</tr>
+		</tbody>		
+		</table>
+		
+	</div>
+</div>
+
+	
+	
+
+
+	
+<style>
+	label{
+		font: normal normal normal 13px/18px Poppins;
+	color: #2E384D;
+	}
+	
+	.switch {
+	  position: relative;
+	  display: inline-block;
+	  width: 40px;
+	  height: 22px;
+	  top:-3px;
+	}
+	
+	.switch input { 
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+	
+	.slider {
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: #ccc;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+	
+	.slider:before {
+	  position: absolute;
+	  content: "";
+	  height: 18px;
+	  width: 18px;
+	  left: 2px;
+	  bottom: 2px;
+	  background-color: white;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+	
+	input:checked + .slider {
+	  background-color: #4caf50;
+	}
+	
+	input:focus + .slider {
+	  box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked + .slider:before {
+	  -webkit-transform: translateX(18px);
+	  -ms-transform: translateX(18px);
+	  transform: translateX(18px);
+	}
+	
+	/* Rounded sliders */
+	.slider.round {
+	  border-radius: 34px;
+	}
+	
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+	.btnApply{
+	  width:150px;
+	}
+		</style>
+	
+
+<style>
+.cbi-section{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 25px 30px #0000001a;
+    border: 1px solid #70707038;
+    border-radius: 10px;
+    width: 95%;
+    padding: 17px;
+margin-bottom:10px;
+}
+</style>

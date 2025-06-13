@@ -1,0 +1,120 @@
+#!/bin/sh
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions.sh
+
+# ArchiveDLPath="/root/SenderAppComponent/etc/certs"
+UpdateConfigScript="/bin/UpdateConfigurationsGateway"
+UpdateNMSConfigScript="/root/InterfaceManager/script/Disable_Nms.sh"
+
+case "$1" in
+    list)
+        echo '{"configure":{},"delete":{},"countkeyfiles":{},"update":{},"testarchive":{"archive":"ArchiveName"}}'
+        ;;
+    call)
+        case "$2" in
+            configure)
+                response=$($UpdateConfigScript)
+                if [ "$?" -ne 0 ]; then
+                    echo "{\"code\":1,\"output\":\"FAILURE : NMS Configuration Update\"}"
+                else
+                    echo "{\"code\":0,\"output\":\"SUCCESS : NMS Configuration Update\"}"
+                fi
+                ;;
+            update)
+                response=$($UpdateNMSConfigScript)
+                if [ "$?" -ne 0 ]; then
+                    echo "{\"code\":1,\"output\":\"FAILURE : NMS Configuration Disable\"}"
+                else
+                    echo "{\"code\":0,\"output\":\"SUCCESS : NMS Configuration Disable\"}"
+                fi
+                ;;
+            testarchive)
+                read -r input
+                json_load "$input" > /dev/null 2>&1
+                json_get_var ArchivedFileWithPath archive
+                json_get_var serverNumber serverNumber
+
+                if [ "$serverNumber" = "server1" ]; then
+                    ArchiveDLPath="/root/SenderAppComponent/etc/certs"
+                elif [ "$serverNumber" = "server2" ]; then
+                    ArchiveDLPath="/root/SenderAppComponent/etc/certs2"
+                else
+                    echo "{\"code\":1,\"output\":\"Invalid serverNumber\"}"
+                    exit 1
+                fi
+
+                if [ -z "$ArchivedFileWithPath" ] || [ ! -f "$ArchivedFileWithPath" ]; then
+                    echo "{\"code\":1,\"output\":\"Invalid or missing archive file\"}"
+                    exit 1
+                fi
+
+                file_type=$(file -b "$ArchivedFileWithPath")
+                if [[ ! "$file_type" =~ "Zip archive data" ]]; then
+                    echo "{\"code\":1,\"output\":\"Invalid ZIP file\"}"
+                    exit 1
+                fi
+
+                mkdir -p "$ArchiveDLPath"
+                unzip -o "$ArchivedFileWithPath" -d "$ArchiveDLPath" > /dev/null 2>&1
+                if [ "$?" -ne 0 ]; then
+                    echo "{\"code\":1,\"output\":\"Extraction Failed\"}"
+                    exit 1
+                else
+                    echo "{\"code\":0,\"output\":\"SUCCESS : TLS extract\"}"
+                fi
+
+                rm -f "$ArchivedFileWithPath"
+                ;;
+            delete)
+                read -r input
+                json_load "$input" > /dev/null 2>&1
+                json_get_var serverNumber serverNumber
+
+                if [ "$serverNumber" = "server1" ]; then
+                    certsPath="/root/SenderAppComponent/etc/certs"
+                    uci set cloudconfig.cloudconfig.enabledelete_1=0
+                elif [ "$serverNumber" = "server2" ]; then
+                    certsPath="/root/SenderAppComponent/etc/certs2"
+                    uci set cloudconfig.cloudconfig.enabledelete_2=0
+                else
+                    echo "{\"code\":1,\"output\":\"Invalid serverNumber\"}"
+                    exit 1
+                fi
+
+                rm -rf "$certsPath"/*
+
+                if [ "$?" -ne 0 ]; then
+                    echo "{\"code\":1,\"output\":\"Delete Certificates Failure!!\"}"
+                else
+                    echo "{\"code\":0,\"output\":\"Delete Certificates Success!!\"}"
+                fi
+                ;;
+            countkeyfiles)
+                read -r input
+                json_load "$input" > /dev/null 2>&1
+                json_get_var serverNumber serverNumber
+
+                if [ "$serverNumber" = "server1" ]; then
+                    certsPath="/root/SenderAppComponent/etc/certs"
+                    uci set cloudconfig.cloudconfig.enabledelete_1=1
+                elif [ "$serverNumber" = "server2" ]; then
+                    certsPath="/root/SenderAppComponent/etc/certs2"
+                    uci set cloudconfig.cloudconfig.enabledelete_2=1
+                else
+                    echo "{\"code\":1,\"output\":\"Invalid serverNumber\"}"
+                    exit 1
+                fi
+
+                count=$(ls -l "$certsPath" | wc -l)
+                echo "{\"code\":0,\"output\":\"$count\"}"
+                ;;
+            *)
+                echo '{"code":"1","output":"invalid method"}'
+                exit 1
+                ;;
+        esac
+        ;;
+esac
+
+exit 0

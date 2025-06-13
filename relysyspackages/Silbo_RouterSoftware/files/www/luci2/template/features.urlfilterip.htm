@@ -1,0 +1,223 @@
+<div>
+  <div class="pagecontent">
+    <div class="row">
+      <div>
+        <div>
+          <!-- <h3>All ports</h3> -->
+        </div>
+        <div style="margin-top:-34px;float:right">
+
+          <button class="btn btn-success btnApply" id="update_ipsec" style="padding: 8px 0px;">Update</button>
+          <button class="btn btn-primary btnApply" data-toggle="modal" id="addnew" data-target="#exampleModal"
+          style="padding: 8px 0px;">AddNew</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active" id="settings1" name="attributes" role="tabpanel">
+        <div class="row">
+          <div class="pagecontent">
+            <div class="row">
+              <div class="col-md-4">
+                <label style="font-weight: bold;font-size:15px;">Change Mode</label>
+                <select class="form-control" id="Accesspolicy1">
+                  <option value="Blacklist">Blacklist</option>
+                  <option value="Whitelist">Whitelist</option>
+                </select>
+
+              </div>
+              <div class="col-md-2">
+                <div style="margin-top:25px;">
+                  <button class="btn btn-primary" id="ChangeMode1">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Host List Section -->
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <p></p>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <div style="text-align: left;">
+                <tr>
+                  <td class="text-right">
+                    <button type="button" id="btn_upload" title="" class="btn btn-success">Upload</button>
+                  </td>
+                </tr>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <div id="networktype1" style="margin-top:10px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id="section_vpn_ipsec" style="margin-top:10px"></div>
+        </div>
+
+
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header" style="border-bottom:1px solid #dddd">
+                <h3 class="modal-title" id="updatetext">Basic Information</h3>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label style="float:right">Status:</label>
+                  </div>
+                  <div class="col-md-7">
+                    <div style="margin-bottom:20px">
+                      <label class="switch">
+                        <input type="checkbox" checked id="UrlfilteringSwitch">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <label style="float:right">Url Blocking:</label>
+                  </div>
+                  <div class="col-md-7">
+                    <input type="text" id="UrlBlocking" class="form-control" style="margin-bottom: 10px;"
+                      placeholder="example.com">
+                    <div class="luci2-field-error label label-danger" id="validationResult"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  style="padding: 5.9px 42px">Cancel</button>
+                <button type="button" class="btn btn-primary btnApply" id='Applyconfig'>Save</button>
+                <button type="button" class="btn btn-primary btnApply" id='editconfig'>Save</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="path/to/jquery.min.js"></script>
+<script src="path/to/bootstrap.min.js"></script>
+
+
+<style>
+  label {
+    font: normal normal normal 13px/18px Poppins;
+    color: #2E384D;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    top: -3px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.slider {
+    background-color: #4caf50;
+  }
+
+  input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked+.slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .table {
+    border: 1px solid #dddd
+  }
+
+  td,
+  th {
+    border: 1px solid #dddd;
+  }
+
+  .btnApply {
+    width: 150px;
+  }
+</style>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="popover"]').popover({
+      placement: 'bottom',
+      // offset: '0 50px' 
+    });
+  });
+
+
+  const lastSelected = localStorage.getItem('Accesspolicy1');
+  if (lastSelected) {
+    $('#Accesspolicy1').val(lastSelected);
+  }
+
+  // Save the selected option to localStorage on change
+  $('#Accesspolicy1').on('change', function () {
+    localStorage.setItem('Accesspolicy1', $(this).val());
+  });
+
+</script>

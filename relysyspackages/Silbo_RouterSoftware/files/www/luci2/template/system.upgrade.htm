@@ -1,0 +1,29 @@
+
+<div class="tab-content">
+	<div class="tab-pane active" id="actions">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%:Flash new firmware image%></h3>
+			</div>
+			<div class="panel-body">
+				<p><%:Upload a sysupgrade-compatible image here to replace the running firmware. Please Click on Flash image button to flash image with default settings.Please Click on Retain Config and Flash image  button to retain configuration and flash image.).%></p>
+				<p>
+					<input class="btn btn-primary" type="button" id="btn_flash" value="<%:Flash image...%>" />
+					<input class="btn btn-primary" type="button" id="btn_retainconfig_flash" value="<%: Retain Config and Flash...%>" />
+					<input class="btn btn-primary" type="button" id="btn_factory_reset" value="<%: Factory Reset%>" />
+
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="config">
+		<div class="panel">
+			<textarea class="form-control"></textarea>
+		</div>
+		<div class="pull-right">
+			<input class="btn btn-primary" type="button" id="btn_save" value="<%:Save%>" />
+			<input class="btn btn-default" type="button" id="btn_list" value="<%:Show current backup file list …%>" />
+		</div>
+	</div>
+</div>

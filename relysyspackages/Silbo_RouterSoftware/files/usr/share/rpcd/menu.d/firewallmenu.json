@@ -1,0 +1,14 @@
+{
+    "network": {
+        "title": "Network",
+        "index": 60
+    },
+
+{
+    "network/firewall": {
+        "title": "Firewall",
+        "acls": [ "firewall" ],
+        "view": "network/firewall",
+        "index": 10
+    },
+}

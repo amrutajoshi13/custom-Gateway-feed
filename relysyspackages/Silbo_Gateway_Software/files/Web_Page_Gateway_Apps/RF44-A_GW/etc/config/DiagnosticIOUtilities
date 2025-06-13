@@ -1,0 +1,27 @@
+config IOUtilities
+    option utility "MODBUS UTILITY"
+    option action "READORWRITE"
+    option inputs "1"
+    option input1Name "Slave ID"
+    option input1Element "text"
+    option input1Type "text"  
+    
+      
+config IOUtilities                          
+        option utility 'Delete Database'
+        option action 'DELETE'                
+        option inputs '1'               
+        option input1Element 'selection'
+        option input1Name 'Database/File'               
+        option input1Type 'string'   
+        list input1Values 'EnergyMeterRS485'
+     
+config IOUtilities                          
+        option utility 'Copy Database to USB'
+        option action 'COPY'                
+        option inputs '1'               
+        option input1Element 'selection'
+        option input1Name 'Database/File'               
+        option input1Type 'string'   
+        list input1Values 'EnergyMeterRS485'
+       

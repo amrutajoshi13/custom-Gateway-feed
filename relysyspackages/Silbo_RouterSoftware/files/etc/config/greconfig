@@ -1,0 +1,5 @@
+config genericconfig 'general'
+	option enableipip '0'
+	option enablegre '0'
+
+

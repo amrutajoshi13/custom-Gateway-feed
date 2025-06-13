@@ -1,0 +1,283 @@
+<div id="map"></div>
+<div class="tab-content" id="tabs">
+	<ul class="nav nav-tabs" id="my_tab" data-tabs="tabs">
+		
+		<li class="TabC Tabsn active">
+			<a id="sectiontab_status" href="#tab_status" data-toggle="tab">Status
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		
+		<li class="TabC TabGn">
+			<a id="sectiontab_general" href="#tab_general" data-toggle="tab">General Settings 
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabFO">
+			<a id=":w" href="#tab_failover" data-toggle="tab">Failover
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+		<li class="TabC TabLB">
+			<a id=":w" href="#tab_loadbalancing" data-toggle="tab">Load Balancing
+				<span class="badge"></span>
+			</a>
+		</li>
+		
+	</ul>
+	
+	
+	<div class="tab-pane TabC Tabsn active" id="tab_status">
+		<ul class="nav nav-tabs" id="my_tab" data-tabs="tabs">
+			<h4><b>Wan Status</b></h4>
+		</ul>
+		<div id="section_firewall_port"></div>
+		<div id="Mansection_firewall_port" class="panel panel-default">
+		<!-- Note with lighter color -->
+		<div class="alert alert-info" role="alert" style="background-color: white; border: 2px solid #90CAF9; color: black;">
+    			<strong>NOTE: Please click the Refresh button for latest status.</strong>
+		</div> 
+			<table class="table table-condensed table-hover">
+				<td class="text-right" style="width: 5%;">
+					<button type="button" id="AddNewPortForward" title="" class="btn btn-success">Refresh</button>
+				</td>
+			</table>
+		</div>
+	</div>
+	
+	
+	
+
+<div class="tab-pane TabC TabGn" id="tab_general">
+			<div id="section_internet_connection"></div>
+	
+	   <table class="table table-condensed table-hover">
+						<td class="text-right" style="width: 5%;">							
+							<button type="button" id="btn_internet_general_update" title="" class="btn btn-success">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>	   
+ 			   </div>	       		
+
+	<div class="tab-pane TabC Tabfo"  id="tab_failover">
+		<div id="section_internet_failover"></div>	
+		<div id="Mansection_internet_failover" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><b>Interface Name</b> </h3>
+				<p> <b>The name of the interface should be same as interface created in Settings-->Network-->Ethernet Settings</b> </p>
+			</div>
+		
+     <table class="table table-condensed table-hover">
+<!--
+		 <tbody>
+-->
+				<thead>
+					<tr class="cbi-section-table-titles">
+						<th class="cbi-section-table-cell">Name</th>
+						<th class="cbi-section-table-cell">Priority</th>
+						<th class="cbi-section-table-cell"> </th>
+					</tr>
+				</thead>
+				
+				
+				<tbody data-toggle="validator">	
+					<tr class="luci2-section-item" id="sectionitem_failover_redirect_newRedirect" data-luci2-sid="newRedirect">
+
+                        <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_failover_redirect_newRedirect_name" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+			
+			            <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_failover_redirect_newRedirect_wanpriority" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+						
+						<td class="text-right" style="width: 1%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewConnectionfailover" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+<!--
+				</tbody>
+-->
+			</table>	
+	
+	
+			<table class="table table-condensed table-hover">
+						<td class="text-right" style="width: 5%;">							
+							<button type="button" id="btn_internet_update" title="" class="btn btn-success">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>	        		
+
+</div>
+</div>
+
+
+      <div class="tab-pane TabC TabLB"  id="tab_loadbalancing">
+		<div id="section_internet_loadbalancing"></div>	
+		<div id="Mansection_internet_loadbalancing" class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><b>Interface Name</b> </h3>
+				<p> <b>The name of the interface should be same as interface created in Settings-->Network-->Ethernet Settings</b> </p>
+			</div>
+			
+			  <table class="table table-condensed table-hover">
+<!--
+				  <tbody>
+-->
+
+				<thead>
+					<tr class="cbi-section-table-titles">
+						<th class="cbi-section-table-cell">Name</th>
+						<th class="cbi-section-table-cell">Traffic Distribution Ratio(Total sum must be 100)</th>
+						<th class="cbi-section-table-cell"> </th>
+					</tr>
+				</thead>
+
+				
+				<tbody data-toggle="validator">
+					<tr class="luci2-section-item" id="sectionitem_loadbalancing_rule_newRule" data-luci2-sid="newRule">
+
+                        <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_loadbalancing_rule_newRule_name" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+								</div>
+							</div>
+						</td>
+			
+			            <td>
+							<div class="luci2-field">
+								<div class="luci2-field-widget">
+									<input class="form-control luci2-field-validate" id="field_loadbalancing_rule_newRule_weight" type="text" placeholder="">
+									<div class="luci2-field-error label label-danger" style="display: none;"></div>
+									<div class="text-danger">The ratio must be the same for CWAN1_0 and CWAN1_1.</div>
+								</div>
+							</div>
+						</td>
+						
+						
+						<td class="text-right" style="width: 1%;">
+							<div class="btn-group">
+								<button type="button" id="AddNewConnectionLoadBalancing" title="" class="btn btn-success">Add</button>
+							</div>
+						</td>
+					</tr>
+<!--
+				</tbody>
+-->
+			</table>	 
+	
+	
+	
+		
+			<table class="table table-condensed table-hover">
+						<td class="text-right" style="width: 5%;">							
+							<button type="button" id="btn_internet_loadbalance_update" title="" class="btn btn-success">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>	        		
+
+</div>
+
+<style>
+	label{
+		font: normal normal normal 13px/18px Poppins;
+	color: #2E384D;
+	}
+	
+	.switch {
+	  position: relative;
+	  display: inline-block;
+	  width: 40px;
+	  height: 22px;
+	  top:-3px;
+	}
+	
+	.switch input { 
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+	
+	.slider {
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: #ccc;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+	
+	.slider:before {
+	  position: absolute;
+	  content: "";
+	  height: 18px;
+	  width: 18px;
+	  left: 2px;
+	  bottom: 2px;
+	  background-color: white;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+	
+	input:checked + .slider {
+	  background-color: #4caf50;
+	}
+	
+	input:focus + .slider {
+	  box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked + .slider:before {
+	  -webkit-transform: translateX(18px);
+	  -ms-transform: translateX(18px);
+	  transform: translateX(18px);
+	}
+	
+	/* Rounded sliders */
+	.slider.round {
+	  border-radius: 34px;
+	}
+	
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+	.btnApply{
+	  width:150px;
+	}
+		</style>
+
+
+ <style>
+.cbi-section{
+    sbackground: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 25px 30px #0000001a;
+    border: 1px solid #70707038;
+    border-radius: 10px;
+    width: 95%;
+    padding: 17px;
+margin-bottom:10px;
+}
+</style>

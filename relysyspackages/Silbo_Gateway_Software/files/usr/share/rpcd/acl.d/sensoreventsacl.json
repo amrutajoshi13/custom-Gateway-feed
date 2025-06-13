@@ -1,0 +1,15 @@
+{
+        "sensorevents": {
+		"description": "Sensor Events and Actions Configuration",
+		"read": {
+			"uci": [
+				"BLControlSensorEventsActions",
+			]
+		},
+		"write": {
+			"uci": [
+				"BLControlSensorEventsActions",
+			]
+		}
+	},
+}
